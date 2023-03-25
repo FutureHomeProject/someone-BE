@@ -11,9 +11,8 @@ import javax.validation.constraints.Size;
 public class SignupRequestDto {
 
     @NotBlank(message = "아이디는 필수사항 입니다.")
-    @Size(min = 4, max = 10, message = "아이디는 최소 4자 이상, 10자 이하의 숫자또는 알파벳 소문자를 입력하세요")
-    @Pattern(regexp = "^[a-z0-9]*$", message = "아이디는 알파벳 소문자(a~z), 숫자(0~9)만 입력 가능합니다.")
-    private String loginid;
+    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$", message = "유효한 이메일 주소를 입력해 주세요.")
+    private String email;
 
     @NotBlank(message = "비밀번호는 필수사항 입니다.")
     @Size(min = 8, max = 15, message = "비밀번호는 최소 8자 이상, 15자 이하의 숫자또는 알파벳 대소문자를 입력하세요")

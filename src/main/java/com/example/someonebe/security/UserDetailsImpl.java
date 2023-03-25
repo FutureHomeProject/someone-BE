@@ -20,6 +20,7 @@ public class UserDetailsImpl implements UserDetails {
     }
 
     public User getUser() {
+
         return user;
     }
 
@@ -37,31 +38,37 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
+
         return this.username;
     }
 
     @Override
     public String getPassword() {
+
         return null;
     }
 
     @Override
     public boolean isAccountNonExpired() {
+
         return false;
     }
 
     @Override
     public boolean isAccountNonLocked() {
+
         return false;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
+
         return false;
     }
 
     @Override
     public boolean isEnabled() {
+
         return false;
     }
 }
