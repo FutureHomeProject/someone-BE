@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 
 public enum ExceptionEnum {
 
-    DUPLICATE_USER(HttpStatus.CONFLICT, "사용중인 아이디 입니다."),
+    DUPLICATE_USER(HttpStatus.CONFLICT, "사용중인 이메일 입니다."), //409
     DUPLICATE_NICKNAME(HttpStatus.CONFLICT, "사용중인 닉네임 입니다."); //409
 
     private HttpStatus status;

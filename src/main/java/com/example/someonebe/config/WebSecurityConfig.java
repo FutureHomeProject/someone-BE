@@ -42,7 +42,7 @@ public class WebSecurityConfig {
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {  //정적 리소스에 대한 보안처리를 무시하는 설정을 하는 메서드
         return (web) -> web.ignoring()
-//                .requestMatchers(PathRequest.toH2Console())
+//                .requestMatchers(PathRequest.toH2Console())   //h2 database
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 
@@ -55,8 +55,10 @@ public class WebSecurityConfig {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/board/detail/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/board/list").permitAll()
+                .antMatchers(HttpMethod.GET, "/houses/{house-id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/houses").permitAll()
+                .antMatchers(HttpMethod.GET, "/products/{product-id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/products").permitAll()
                 .antMatchers("/user/signup", "/user/login").permitAll()
                 .anyRequest().authenticated();
 

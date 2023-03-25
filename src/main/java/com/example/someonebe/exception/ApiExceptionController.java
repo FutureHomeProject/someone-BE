@@ -33,4 +33,6 @@ public class ApiExceptionController {
                         .getFieldErrors().get(0)
                         .getDefaultMessage());
     }
+
+
 }
