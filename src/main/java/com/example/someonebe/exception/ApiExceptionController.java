@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
-@RestController
+@RestControllerAdvice
 public class ApiExceptionController {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
@@ -33,6 +33,4 @@ public class ApiExceptionController {
                         .getFieldErrors().get(0)
                         .getDefaultMessage());
     }
-
-
 }
