@@ -58,7 +58,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.GET, "/houses").permitAll()
                 .antMatchers(HttpMethod.GET, "/products/{product-id}").permitAll()
                 .antMatchers(HttpMethod.GET, "/products").permitAll()
-                .antMatchers("/user/signup", "/user/login").permitAll()
+                .antMatchers("/users/signup", "/users/login").permitAll()
                 .anyRequest().authenticated();
 
         http.cors();
@@ -84,7 +84,7 @@ public class WebSecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.addAllowedOrigin("http://yongminbucket.s3-website.ap-northeast-2.amazonaws.com/");
+        configuration.addAllowedOrigin("http://localhost:3000");
         configuration.addExposedHeader(JwtUtil.AUTHORIZATION_HEADER);
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
