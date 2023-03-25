@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 public class SignupRequestDto {
 
     @NotBlank(message = "아이디는 필수사항 입니다.")
-    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z]{2,6}$", message = "유효한 이메일 주소를 입력해 주세요.")
+    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$", message = "유효한 이메일 주소를 입력해 주세요.")
     private String email;
 
     @NotBlank(message = "비밀번호는 필수사항 입니다.")
