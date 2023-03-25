@@ -68,7 +68,7 @@ public class UserService {
         );
 
         if(!passwordEncoder.matches(password, user.getPassword())) {
-            throw new ApiException(ExceptionEnum.INVALID_CREDENTIALS);
+            throw new ApiException(ExceptionEnum.PASSWORD_MISMATCH);
         }
 
         response.addHeader(JwtUtil.AUTHORIZATION_HEADER, jwtUtil.createToken(
