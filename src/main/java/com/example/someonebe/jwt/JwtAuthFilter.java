@@ -1,6 +1,6 @@
 package com.example.someonebe.jwt;
 
-import com.example.someonebe.dto.SecurityExceptionDto;
+import com.example.someonebe.dto.response.SecurityExceptionDto;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
 import lombok.RequiredArgsConstructor;

@@ -27,7 +27,6 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableWebSecurity                                   //웹보안 활성화
 @EnableGlobalMethodSecurity(securedEnabled = true)   //메서드 수준의 보안을 활성화, @Secured 어노테이션을 사용할수 있게 한다.
 public class WebSecurityConfig {
-
     private final JwtUtil jwtUtil;
     private final CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
     private final CustomAccessDeniedHandler customAccessDeniedHandler;
@@ -62,7 +61,6 @@ public class WebSecurityConfig {
 
         http.cors();
         http.addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class);
-
         // 내장 기본 로그인 사용
 //        http.formLogin();
         // Custom 로그인 페이지 사용
