@@ -3,6 +3,7 @@ package com.example.someonebe.controller;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.ProductRequestDto;
 import com.example.someonebe.dto.response.ProductResponseDto;
+import com.example.someonebe.entity.User;
 import com.example.someonebe.security.UserDetailsImpl;
 import com.example.someonebe.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,9 @@ public class ProductController {
     // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
     @GetMapping("/products")
     public ResponseEntity<MessageResponseDto<List<ProductResponseDto>>> getProducts(@AuthenticationPrincipal UserDetailsImpl userDetails) {
-        return ResponseEntity.ok().body(productService.getProducts(userDetails.getUser()));
+        User user = null;
+        if (userDetails != null) user = userDetails.getUser();
+        return ResponseEntity.ok().body(productService.getProducts(user));
     }
 
     // 상품 상세페이지
@@ -37,7 +40,9 @@ public class ProductController {
     // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
     @GetMapping("/products/{productid}")
     public ResponseEntity<MessageResponseDto<List<ProductResponseDto>>> detailProduct(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid) {
-        return ResponseEntity.ok().body(productService.detailProduct(userDetails.getUser(), productid));
+        User user = null;
+        if (userDetails != null) user = userDetails.getUser();
+        return ResponseEntity.ok().body(productService.detailProduct(user, productid));
     }
 
 
