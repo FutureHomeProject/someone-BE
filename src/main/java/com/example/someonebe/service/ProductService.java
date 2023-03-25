@@ -49,6 +49,7 @@ public class ProductService {
     }
 
     // 상품 상세페이지
+    @Transactional
     public MessageResponseDto detailProduct(User user, Long productid) {
         Product product = productRepository.findById(productid)
                 .orElseThrow(() -> new ApiException(ExceptionEnum.PRODUCT_FIND_FAILED));

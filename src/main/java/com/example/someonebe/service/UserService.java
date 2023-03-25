@@ -79,6 +79,6 @@ public class UserService {
                 user.getRole(),
                 user.getNickname()));
         return new LoginResponseDto(StatusEnum.OK, user.getNickname(), "null");
-        return new MessageResponseDto(StatusEnum.OK, null);
+//        return new MessageResponseDto(StatusEnum.OK, null);
     }
 }

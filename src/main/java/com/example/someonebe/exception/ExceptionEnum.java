@@ -10,6 +10,7 @@ public enum ExceptionEnum {
     PASSWORD_MISMATCH(HttpStatus.BAD_REQUEST, "비밀번호가 일치하지 않습니다."),//400
     INVALID_CREDENTIALS(HttpStatus.valueOf(600), "이메일 또는 비밀번호가 일치하지 않습니다."),
     PRODUCT_FIND_FAILED(HttpStatus.BAD_REQUEST, "상품 조회를 실패했습니다.");
+
     private HttpStatus status;
     private String message;
 
