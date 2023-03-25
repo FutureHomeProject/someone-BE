@@ -30,6 +30,7 @@ public class ProductController {
     // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
     @GetMapping("/products")
     public ResponseEntity<MessageResponseDto<List<ProductResponseDto>>> getProducts(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        // user가 토큰 없이도 조회가 가능하다
         User user = null;
         if (userDetails != null) user = userDetails.getUser();
         return ResponseEntity.ok().body(productService.getProducts(user));
@@ -40,6 +41,7 @@ public class ProductController {
     // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
     @GetMapping("/products/{productid}")
     public ResponseEntity<MessageResponseDto<List<ProductResponseDto>>> detailProduct(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid) {
+        // user가 토큰 없이도 조회가 가능하다
         User user = null;
         if (userDetails != null) user = userDetails.getUser();
         return ResponseEntity.ok().body(productService.detailProduct(user, productid));
