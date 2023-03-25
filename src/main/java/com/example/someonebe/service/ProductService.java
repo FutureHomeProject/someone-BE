@@ -22,14 +22,14 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    // 상품 등록
-    @Transactional
-    public MessageResponseDto createProduct(ProductRequestDto productRequestDto, User user) {
-        Product product = new Product(productRequestDto, user);
-        productRepository.save(product);
-
-        return new MessageResponseDto(StatusEnum.OK, null);
-    }
+//    // 상품 등록
+//    @Transactional
+//    public MessageResponseDto createProduct(ProductRequestDto productRequestDto, User user) {
+//        Product product = new Product(productRequestDto, user);
+//        productRepository.save(product);
+//
+//        return new MessageResponseDto(StatusEnum.OK, null);
+//    }
 
     // 전체 상품 조회
     @Transactional
