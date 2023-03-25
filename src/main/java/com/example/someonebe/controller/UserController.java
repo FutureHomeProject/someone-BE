@@ -1,14 +1,19 @@
 package com.example.someonebe.controller;
 
+import com.example.someonebe.dto.request.LoginRequestDto;
+import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
+import com.example.someonebe.security.UserDetailsImpl;
 import com.example.someonebe.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @RestController
@@ -22,5 +27,12 @@ public class UserController {
     public MessageResponseDto signup(
             @RequestBody @Valid SignupRequestDto signupRequestDto) {
         return userService.signup(signupRequestDto);
+    }
+
+    @PostMapping("/login")
+    public LoginResponseDto login(
+            @RequestBody @Valid LoginRequestDto loginRequestDto,
+            HttpServletResponse response) {
+        return userService.login(loginRequestDto, response);
     }
 }

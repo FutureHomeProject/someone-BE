@@ -1,5 +1,7 @@
 package com.example.someonebe.service;
 
+import com.example.someonebe.dto.request.LoginRequestDto;
+import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
 import com.example.someonebe.dto.response.StatusEnum;
@@ -14,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
 @Service
@@ -53,5 +56,25 @@ public class UserService {
         }
         userRepository.save(new User(username, password, nickname, role));
         return new MessageResponseDto(StatusEnum.OK, "null");
+    }
+
+    @Transactional(readOnly = true)
+    public LoginResponseDto login(LoginRequestDto loginRequestDto, HttpServletResponse response) {
+        String username = loginRequestDto.getEmail();
+        String password = loginRequestDto.getPassword();
+
+        User user = userRepository.findByUsername(username).orElseThrow(
+                () -> new ApiException(ExceptionEnum.NOT_FOUND_USER)
+        );
+
+        if(!passwordEncoder.matches(password, user.getPassword())) {
+            throw new ApiException(ExceptionEnum.INVALID_CREDENTIALS);
+        }
+
+        response.addHeader(JwtUtil.AUTHORIZATION_HEADER, jwtUtil.createToken(
+                user.getUsername(),
+                user.getRole(),
+                user.getNickname()));
+        return new LoginResponseDto(StatusEnum.OK, user.getNickname(), "null");
     }
 }
