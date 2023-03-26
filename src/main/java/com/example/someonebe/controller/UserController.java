@@ -1,6 +1,8 @@
 package com.example.someonebe.controller;
 
+import com.example.someonebe.dto.request.CheckEmailRequestDto;
 import com.example.someonebe.dto.request.LoginRequestDto;
+import com.example.someonebe.dto.response.CheckEmailResponseDto;
 import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
@@ -32,5 +34,11 @@ public class UserController {
             @RequestBody LoginRequestDto loginRequestDto,
             HttpServletResponse response) {
         return userService.login(loginRequestDto, response);
+    }
+
+    @PostMapping("/confirm-email")
+    public CheckEmailResponseDto checkemail(
+            @RequestBody @Valid CheckEmailRequestDto checkEmailRequestDto) {
+        return userService.checkemail(checkEmailRequestDto);
     }
 }
