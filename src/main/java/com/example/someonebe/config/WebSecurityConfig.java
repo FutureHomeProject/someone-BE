@@ -59,6 +59,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.GET, "/products/{product-id}").permitAll()
                 .antMatchers(HttpMethod.GET, "/products").permitAll()
                 .antMatchers("/users/signup", "/users/login").permitAll()
+            .antMatchers("/test/**").permitAll()
                 .anyRequest().authenticated();
 
         http.cors();
