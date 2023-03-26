@@ -1,8 +1,11 @@
 package com.example.someonebe.controller;
 
+
 import com.example.someonebe.dto.request.CheckNicknameRequestDto;
-import com.example.someonebe.dto.request.LoginRequestDto;
 import com.example.someonebe.dto.response.CheckNicknameResponseDto;
+import com.example.someonebe.dto.request.CheckEmailRequestDto;
+import com.example.someonebe.dto.request.LoginRequestDto;
+import com.example.someonebe.dto.response.CheckEmailResponseDto;
 import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
@@ -36,11 +39,18 @@ public class UserController {
             HttpServletResponse response) {
         return userService.login(loginRequestDto, response);
     }
+    
+    @PostMapping("/confirm-email")
+    public CheckEmailResponseDto confirmEmail(
+            @RequestBody @Valid CheckEmailRequestDto checkEmailRequestDto) {
+        return userService.confirmEmail(checkEmailRequestDto);
+    }
+
 
     @PostMapping("/confirm-nickname")
     public CheckNicknameResponseDto confirmNickname(
             @RequestBody @Valid CheckNicknameRequestDto checkNicknameRequestDto
             ) {
         return userService.confirmNickname(checkNicknameRequestDto);
-    }
+    }           
 }

@@ -1,8 +1,10 @@
 package com.example.someonebe.service;
 
 import com.example.someonebe.dto.request.CheckNicknameRequestDto;
-import com.example.someonebe.dto.request.LoginRequestDto;
 import com.example.someonebe.dto.response.CheckNicknameResponseDto;
+import com.example.someonebe.dto.request.CheckEmailRequestDto;
+import com.example.someonebe.dto.request.LoginRequestDto;
+import com.example.someonebe.dto.response.CheckEmailResponseDto;
 import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
@@ -79,6 +81,19 @@ public class UserService {
                 user.getRole(),
                 user.getNickname()));
         return new LoginResponseDto(StatusEnum.OK, user.getNickname(), "null");
+    }
+    
+    @Transactional(readOnly = true)
+    public CheckEmailResponseDto confirmEmail(CheckEmailRequestDto checkEmailRequestDto) {
+
+        String username = checkEmailRequestDto.getEmail();
+
+        Optional<User> userfind = userRepository.findByUsername(username);
+        if (userfind.isPresent()) {
+            throw new ApiException(ExceptionEnum.DUPLICATE_USER);
+        }
+
+        return new CheckEmailResponseDto("pass");
     }
 
     @Transactional(readOnly = true)
