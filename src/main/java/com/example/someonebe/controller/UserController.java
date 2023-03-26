@@ -1,11 +1,14 @@
 package com.example.someonebe.controller;
 
+import com.example.someonebe.dto.request.CheckNicknameRequestDto;
 import com.example.someonebe.dto.request.LoginRequestDto;
+import com.example.someonebe.dto.response.CheckNicknameResponseDto;
 import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
 import com.example.someonebe.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,5 +35,12 @@ public class UserController {
             @RequestBody LoginRequestDto loginRequestDto,
             HttpServletResponse response) {
         return userService.login(loginRequestDto, response);
+    }
+
+    @PostMapping("/confirm-nickname")
+    public CheckNicknameResponseDto confirmNickname(
+            @RequestBody @Valid CheckNicknameRequestDto checkNicknameRequestDto
+            ) {
+        return userService.confirmNickname(checkNicknameRequestDto);
     }
 }
