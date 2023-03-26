@@ -81,7 +81,7 @@ public class UserService {
     }
 
     @Transactional(readOnly = true)
-    public CheckEmailResponseDto checkemail(CheckEmailRequestDto checkEmailRequestDto) {
+    public CheckEmailResponseDto confirmEmail(CheckEmailRequestDto checkEmailRequestDto) {
 
         String username = checkEmailRequestDto.getEmail();
 
