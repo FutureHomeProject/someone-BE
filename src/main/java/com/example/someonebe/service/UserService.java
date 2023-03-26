@@ -93,7 +93,7 @@ public class UserService {
             throw new ApiException(ExceptionEnum.DUPLICATE_USER);
         }
 
-        return new CheckEmailResponseDto("pass");
+        return new CheckEmailResponseDto(StatusEnum.OK,"pass", "null");
     }
 
     @Transactional(readOnly = true)
