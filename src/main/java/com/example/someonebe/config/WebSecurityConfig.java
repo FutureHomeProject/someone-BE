@@ -60,6 +60,7 @@ public class WebSecurityConfig {
                 .antMatchers(HttpMethod.GET, "/products").permitAll()
                 .antMatchers("/users/signup", "/users/login").permitAll()
             .antMatchers("/test/**").permitAll()
+                .antMatchers("/users/signup", "/users/login","/users/confirm-email", "/users/confirm-nickname").permitAll()
                 .anyRequest().authenticated();
 
         http.cors();

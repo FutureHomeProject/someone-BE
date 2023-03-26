@@ -56,6 +56,10 @@ dependencies {
 
 
 }
+													//-Xlint:unchecked 옵션
+//tasks.withType(JavaCompile) {						//Gradle 빌드시 나오는 오류 자세하게 나오게함
+//	options.compilerArgs << "-Xlint:unchecked"
+//}
 
 tasks.named('test') {
 	useJUnitPlatform()
