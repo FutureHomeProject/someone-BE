@@ -37,8 +37,8 @@ public class UserController {
     }
 
     @PostMapping("/confirm-email")
-    public CheckEmailResponseDto checkemail(
+    public CheckEmailResponseDto confirmEmail(
             @RequestBody @Valid CheckEmailRequestDto checkEmailRequestDto) {
-        return userService.checkemail(checkEmailRequestDto);
+        return userService.confirmEmail(checkEmailRequestDto);
     }
 }
