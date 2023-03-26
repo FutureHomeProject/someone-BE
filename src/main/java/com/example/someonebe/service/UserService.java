@@ -1,6 +1,10 @@
 package com.example.someonebe.service;
 
+import com.example.someonebe.dto.request.CheckNicknameRequestDto;
+import com.example.someonebe.dto.response.CheckNicknameResponseDto;
+import com.example.someonebe.dto.request.CheckEmailRequestDto;
 import com.example.someonebe.dto.request.LoginRequestDto;
+import com.example.someonebe.dto.response.CheckEmailResponseDto;
 import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
@@ -15,6 +19,7 @@ import com.example.someonebe.jwt.JwtUtil;
 import com.example.someonebe.jwt.UserRoleEnum;
 import com.example.someonebe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -80,5 +85,29 @@ public class UserService {
                 user.getNickname()));
         return new LoginResponseDto(StatusEnum.OK, user.getNickname(), "null");
 //        return new MessageResponseDto(StatusEnum.OK, null);
+    }
+    
+    @Transactional(readOnly = true)
+    public CheckEmailResponseDto confirmEmail(CheckEmailRequestDto checkEmailRequestDto) {
+
+        String username = checkEmailRequestDto.getEmail();
+
+        Optional<User> userfind = userRepository.findByUsername(username);
+        if (userfind.isPresent()) {
+            throw new ApiException(ExceptionEnum.DUPLICATE_USER);
+        }
+
+        return new CheckEmailResponseDto(StatusEnum.OK,"pass", "null");
+    }
+
+    @Transactional(readOnly = true)
+    public CheckNicknameResponseDto confirmNickname(CheckNicknameRequestDto checkNicknameRequestDto) {
+        String nickname =checkNicknameRequestDto.getNickname();
+
+        Optional<User> nicknamefind = userRepository.findByNickname(nickname);
+        if(nicknamefind.isPresent()) {
+            throw new ApiException(ExceptionEnum.DUPLICATE_NICKNAME);
+        }
+        return new CheckNicknameResponseDto(StatusEnum.OK,"pass", "null");
     }
 }
