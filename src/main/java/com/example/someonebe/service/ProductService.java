@@ -1,10 +1,8 @@
 package com.example.someonebe.service;
 
-import com.example.someonebe.dto.request.ProductRequestDto;
-import com.example.someonebe.dto.response.MessageResponseDto;
-import com.example.someonebe.dto.response.ProductResponseDto;
-import com.example.someonebe.dto.response.StatusEnum;
+import com.example.someonebe.dto.response.*;
 import com.example.someonebe.entity.Product;
+import com.example.someonebe.entity.Review;
 import com.example.someonebe.entity.User;
 import com.example.someonebe.exception.ApiException;
 import com.example.someonebe.exception.ExceptionEnum;
@@ -22,14 +20,15 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-//    // 상품 등록
-//    @Transactional
-//    public MessageResponseDto createProduct(ProductRequestDto productRequestDto, User user) {
-//        Product product = new Product(productRequestDto, user);
-//        productRepository.save(product);
-//
-//        return new MessageResponseDto(StatusEnum.OK, null);
-//    }
+    // 상품 등록 -- 확인용
+    @Transactional
+    public MessageResponseDto createProduct(User user) {
+
+        Product product = new Product(user);
+        productRepository.save(product);
+
+        return new MessageResponseDto(StatusEnum.OK, null);
+    }
 
     // 전체 상품 조회
     @Transactional
@@ -38,9 +37,10 @@ public class ProductService {
         List <ProductResponseDto> productList = new ArrayList<>();
 
         for (Product product : products) {
-            productList.add(new ProductResponseDto(product));
+            productList.add(new ProductResponseDto(product, false));
         }
         return new MessageResponseDto<>(StatusEnum.OK, productList);
+
 
         // 스트림을 사용할 수 있나? -> 테스트 중(파라미터로 id받아와야함)
 //        List <ProductResponseDto> productList =
@@ -54,7 +54,13 @@ public class ProductService {
         Product product = productRepository.findById(productid)
                 .orElseThrow(() -> new ApiException(ExceptionEnum.PRODUCT_FIND_FAILED));
 
-        return new MessageResponseDto<>(StatusEnum.OK, product);
+        List <ReviewResponseDto> reviewList = new ArrayList<>();
+        for (Review review : product.getReviews()) {
+            reviewList.add(new ReviewResponseDto(review));
+        }
+        ProductDetailResponseDto productDetailResponseDto = new ProductDetailResponseDto(product, reviewList, false);
+
+        return new MessageResponseDto<>(StatusEnum.OK, productDetailResponseDto);
     }
 
 }

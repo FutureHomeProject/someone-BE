@@ -2,30 +2,34 @@ package com.example.someonebe.dto.response;
 
 import com.example.someonebe.entity.Product;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
-@Setter
-public class ProductResponseDto {
+@NoArgsConstructor
+public class ProductDetailResponseDto {
 
     private Long id;
     private String image;
     private String title;
-    private String nickname;
+    private String content;
     private int scrapcount;
     private boolean scrapstatus;
     private String createdAt;
+    private List<ReviewResponseDto> reviewList = new ArrayList<>();
 
-    public ProductResponseDto(Product product, boolean scrapstatus) {
+    public ProductDetailResponseDto(Product product, List<ReviewResponseDto> reviewList, boolean scrapstatus) {
         this.id = product.getId();
         this.image = product.getImage();
         this.title = product.getTitle();
-        this.nickname = getNickname();
+        this.content = product.getContent();
         this.scrapcount = product.getScrapcount();
         this.scrapstatus = scrapstatus;
         this.createdAt = product.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
+        this.reviewList = reviewList;
     }
 
 }
