@@ -40,4 +40,5 @@ public class Review extends Timestamped{
         this.image = reviewRequestDto.getImage();
         this.comment = reviewRequestDto.getComment();
     }
+
 }
