@@ -1,15 +1,15 @@
 package com.example.someonebe.dto.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
+@AllArgsConstructor
 public class ProductRequestDto {
 
+    private String image;
     private String name;
     private int price;
-    private String image;
     private String brandname;
 
 }
