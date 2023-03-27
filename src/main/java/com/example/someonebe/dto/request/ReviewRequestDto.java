@@ -5,11 +5,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class ProductRequestDto {
+public class ReviewRequestDto {
 
     private String image;
-    private String name;
-    private int price;
-    private String brandname;
+    private String comment;
 
 }
