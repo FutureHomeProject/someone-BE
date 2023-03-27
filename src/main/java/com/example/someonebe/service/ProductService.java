@@ -7,18 +7,20 @@ import com.example.someonebe.entity.User;
 import com.example.someonebe.exception.ApiException;
 import com.example.someonebe.exception.ExceptionEnum;
 import com.example.someonebe.repository.ProductRepository;
+import com.example.someonebe.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.CollectionTable;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
 public class ProductService {
 
     private final ProductRepository productRepository;
+    private final ReviewRepository reviewRepository;
 
     // 상품 등록 -- 확인용
     @Transactional
@@ -52,7 +54,7 @@ public class ProductService {
     @Transactional
     public MessageResponseDto detailProduct(User user, Long productid) {
         Product product = productRepository.findById(productid)
-                .orElseThrow(() -> new ApiException(ExceptionEnum.PRODUCT_FIND_FAILED));
+                .orElseThrow(() -> new ApiException(ExceptionEnum.NOT_FOUND_PRODUCT_ID));
 
         List <ReviewResponseDto> reviewList = new ArrayList<>();
         for (Review review : product.getReviews()) {
