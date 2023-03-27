@@ -58,4 +58,7 @@ public class Product extends Timestamped{
         this.user = user;
     }
 
+    public void updateScrapcount(int scrapcount) {
+        this.scrapcount = scrapcount;
+    }
 }
