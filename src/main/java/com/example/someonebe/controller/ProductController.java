@@ -25,7 +25,6 @@ public class ProductController {
         return productService.createProduct(userDetails.getUser());
     }
 
-
 //    // 메인,상품 전체조회 페이지
 //    // 전체 게시글은 비회원도 볼 수 있다. 하지만 인증 user를 주는 이유
 //    // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
@@ -48,7 +47,11 @@ public class ProductController {
         return productService.detailProduct(user, productid);
     }
 
-
+    // 상픔 스크랩
+    @PostMapping("/products/{productid}/scrap")
+    public MessageResponseDto scrap(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid) {
+        return productService.scrap(userDetails.getUser(), productid);
+    }
 
 
 
