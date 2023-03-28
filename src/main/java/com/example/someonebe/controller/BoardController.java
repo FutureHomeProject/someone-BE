@@ -35,6 +35,7 @@ public class BoardController {
 
     @GetMapping
     public List<BoardListResponseDto> getBoardList() {
+
         return boardService.getBoardList();
     }
 
@@ -43,5 +44,10 @@ public class BoardController {
         User user = null;
         if (userDetails != null) user = userDetails.getUser();
         return boardService.getBoardDetailList(boardId, user);
+    }
+
+    @DeleteMapping("/{boardId}")
+    public MessageResponseDto deleteBoard(@PathVariable Long boardId, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return boardService.deleteBoard(boardId, userDetails.getUser());
     }
 }

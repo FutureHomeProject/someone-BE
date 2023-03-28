@@ -55,9 +55,9 @@ public class WebSecurityConfig {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeRequests()
-                .antMatchers(HttpMethod.GET, "/houses/{house-id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/houses/{boardid}").permitAll()
                 .antMatchers(HttpMethod.GET, "/houses").permitAll()
-                .antMatchers(HttpMethod.GET, "/products/{product-id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/products/{productid}").permitAll()
                 .antMatchers(HttpMethod.GET, "/products").permitAll()
                 .antMatchers("/users/signup", "/users/login","/users/confirm-email", "/users/confirm-nickname").permitAll()
                 .anyRequest().authenticated();

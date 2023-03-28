@@ -2,13 +2,9 @@ package com.example.someonebe.dto.response;
 
 import com.example.someonebe.entity.Board;
 import com.example.someonebe.entity.User;
+import lombok.Getter;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-
+@Getter
 public class BoardDetailResponseDto {
 
     private Long id;

@@ -1,11 +1,11 @@
 package com.example.someonebe.dto.response;
 
 import com.example.someonebe.entity.Board;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
-
+@Getter
+@NoArgsConstructor
 public class BoardListResponseDto {
 
     private Long id;
