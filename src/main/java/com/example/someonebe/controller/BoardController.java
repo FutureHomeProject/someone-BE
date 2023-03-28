@@ -8,6 +8,7 @@ import com.example.someonebe.entity.User;
 import com.example.someonebe.security.UserDetailsImpl;
 import com.example.someonebe.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 

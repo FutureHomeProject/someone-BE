@@ -52,6 +52,13 @@ dependencies {
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
 
+
+	//S3 Bucket
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+	implementation 'com.amazonaws:aws-java-sdk:1.11.404'
+
+
+
 //	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.6.RELEASE'
 
 
@@ -60,6 +67,11 @@ dependencies {
 //tasks.withType(JavaCompile) {						//Gradle 빌드시 나오는 오류 자세하게 나오게함
 //	options.compilerArgs << "-Xlint:unchecked"
 //}
+
+
+
+
+
 
 tasks.named('test') {
 	useJUnitPlatform()

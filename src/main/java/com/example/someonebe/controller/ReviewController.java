@@ -7,6 +7,7 @@ import com.example.someonebe.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,8 +17,8 @@ public class ReviewController {
 
     // 상품 게시글 댓글 작성
     @PostMapping("/products/{productid}/reviews/write")
-    public MessageResponseDto addReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @RequestBody ReviewRequestDto reviewRequestDto) {
-        return reviewService.addReview(userDetails.getUser(), productid, reviewRequestDto);
+    public MessageResponseDto addReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @RequestPart("review")ReviewRequestDto reviewRequestDto, @RequestPart(value = "image", required = false)MultipartFile image) {
+        return reviewService.addReview(userDetails.getUser(), productid, reviewRequestDto, image);
     }
 
     // 댓글 수정
