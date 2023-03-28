@@ -40,6 +40,10 @@ public class Review extends Timestamped{
         this.product = product;
     }
 
+    public Review(ReviewRequestDto reviewRequestDto) {
+        this.reviewpoint = reviewRequestDto.getReviewpoint();
+    }
+
     public void update(ReviewRequestDto reviewRequestDto) {
         this.image = reviewRequestDto.getImage();
         this.comment = reviewRequestDto.getComment();

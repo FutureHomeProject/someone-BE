@@ -1,5 +1,6 @@
 package com.example.someonebe.service;
 
+import com.example.someonebe.dto.request.ReviewRequestDto;
 import com.example.someonebe.dto.response.*;
 import com.example.someonebe.entity.Product;
 import com.example.someonebe.entity.Review;
@@ -55,7 +56,7 @@ public class ProductService {
 
     // 상품 상세페이지
     @Transactional
-    public MessageResponseDto detailProduct(User user, Long productid) {
+    public MessageResponseDto detailProduct(User user, Long productid, ReviewRequestDto reviewRequestDto) {
         // 게시글 찾기
         Product product = findProductPost(productid);
         
@@ -68,13 +69,14 @@ public class ProductService {
             reviewList.add(new ReviewResponseDto(review1, product));
         }
 
-        Review review = product.getReviews().stream().findFirst().orElse(null);
+        Review review = new Review(reviewRequestDto);
         ProductDetailResponseDto productDetailResponseDto = new ProductDetailResponseDto(review, product, reviewList, scrapstatus);
 
         return new MessageResponseDto<>(StatusEnum.OK, productDetailResponseDto);
     }
 
     // 상품 스크랩
+    @Transactional
     public MessageResponseDto scrap(User user, Long productid) {
         // 게시글 찾기
         Product product = findProductPost(productid);
