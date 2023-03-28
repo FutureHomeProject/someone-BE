@@ -69,7 +69,7 @@ public class ReviewService {
 
     // 댓글 찾기 함수
     public Review findReview(Long reviewid) {
-        return reviewRepository.findById(reviewid).orElseThrow(() -> new ApiException(ExceptionEnum.NOT_FOUND_Review));
+        return reviewRepository.findById(reviewid).orElseThrow(() -> new ApiException(ExceptionEnum.NOT_FOUND_REVIEW));
     }
 
     // 댓글 내가 쓴건지 확인

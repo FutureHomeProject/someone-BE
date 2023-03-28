@@ -1,7 +1,8 @@
 package com.example.someonebe.dto.response;
 
 public enum StatusEnum {
-    OK(200, "success");
+    OK(200, "success"),
+    BAD(400, "Failed");
 
     int statusCode;
 

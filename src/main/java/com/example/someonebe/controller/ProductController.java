@@ -1,13 +1,11 @@
 package com.example.someonebe.controller;
 
 import com.example.someonebe.dto.response.MessageResponseDto;
-import com.example.someonebe.dto.response.ProductDetailResponseDto;
 import com.example.someonebe.dto.response.ProductResponseDto;
 import com.example.someonebe.entity.User;
 import com.example.someonebe.security.UserDetailsImpl;
 import com.example.someonebe.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,6 +50,18 @@ public class ProductController {
     public MessageResponseDto scrap(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid) {
         return productService.scrap(userDetails.getUser(), productid);
     }
+
+    // 상품 검색
+    @GetMapping("/products/search")
+    public MessageResponseDto<List<ProductResponseDto>> searchName(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestParam(value = "name") String name) {
+        // 비회원도 검색 가능
+        User user = null;
+        if (userDetails != null) user = userDetails.getUser();
+        return productService.searchName(user, name);
+    }
+
+
+
 
 
 

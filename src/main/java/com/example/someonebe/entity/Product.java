@@ -39,6 +39,9 @@ public class Product extends Timestamped{
     @Column(nullable = false)
     private int scrapcount;
 
+    @Column(nullable = false)
+    private String reviewpoint;
+
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
@@ -55,6 +58,7 @@ public class Product extends Timestamped{
         this.title = getTitle();
         this.content = getContent();
         this.scrapcount = getScrapcount();
+        this.reviewpoint = getReviewpoint();
         this.user = user;
     }
 
