@@ -5,13 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
 @Entity
-public class Board {
+public class Board extends Timestamped{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,6 +39,8 @@ public class Board {
     @Column(nullable = false)
     private Long userid;
 
+    private LocalDateTime createdAt;
+
     public Board(BoardRequestDto boardRequestDto, User user) {
         this.dwellingtype = boardRequestDto.getDwellingtype();
         this.average = boardRequestDto.getAverage();
@@ -48,10 +49,12 @@ public class Board {
         this.contents = boardRequestDto.getContents();
         this.region = boardRequestDto.getRegion();
         this.userid = user.getId();
+        this.nickname = user.getNickname();
     }
 
     public void update(BoardRequestDto boardRequestDto) {
         this.dwellingtype = boardRequestDto.getDwellingtype();
+        this.average = boardRequestDto.getAverage();
         this.title = boardRequestDto.getTitle();
         this.image = boardRequestDto.getImage();
         this.contents = boardRequestDto.getContents();

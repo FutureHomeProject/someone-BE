@@ -28,11 +28,8 @@ public class BoardController {
         return boardService.writeBoard(boardRequestDto, userDetails.getUser());
     }
 
-    @PutMapping("/{house-id}")
-    public MessageResponseDto updateBoard(
-            @PathVariable Long boardId,
-            @RequestBody @Valid BoardRequestDto boardRequest,
-            @AuthenticationPrincipal UserDetailsImpl userDetails) {
+    @PutMapping("/{boardId}")
+    public MessageResponseDto updateBoard(@PathVariable Long boardId, @RequestBody @Valid BoardRequestDto boardRequest, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         return boardService.updateBoard(boardId, boardRequest, userDetails.getUser());
     }
 
@@ -41,7 +38,7 @@ public class BoardController {
         return boardService.getBoardList();
     }
 
-    @GetMapping("/{house-id}")
+    @GetMapping("/{boardId}")
     public BoardDetailResponseDto getBoardDetailList(@PathVariable Long boardId, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         User user = null;
         if (userDetails != null) user = userDetails.getUser();

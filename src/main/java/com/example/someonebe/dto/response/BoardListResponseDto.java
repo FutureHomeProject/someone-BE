@@ -19,7 +19,5 @@ public class BoardListResponseDto {
         this.title = board.getTitle();
         this.image = board.getImage();
         this.nickname = board.getNickname();
-
-
     }
 }
