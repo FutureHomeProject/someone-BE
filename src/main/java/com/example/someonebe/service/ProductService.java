@@ -62,7 +62,7 @@ public class ProductService {
         // Entity의 reviews에서 댓글을 하나씩 꺼내 response리스트에 넣어주기
         List <ReviewResponseDto> reviewList = new ArrayList<>();
         for (Review review : product.getReviews()) {
-            reviewList.add(new ReviewResponseDto(review));
+            reviewList.add(new ReviewResponseDto(review, product));
         }
 
         boolean scrapstatus = false;
