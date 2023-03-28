@@ -32,10 +32,17 @@ public class ProductService {
         return new MessageResponseDto(StatusEnum.OK, null);
     }
 
-    // 전체 상품 조회
+    // 전체 상품 조회 / 검색
     @Transactional
-    public MessageResponseDto getProducts(User user) {
-        List<Product> products = productRepository.findAllByOrderByCreatedAtDesc();
+    public MessageResponseDto getProducts(User user, String name) {
+
+        List<Product> products;
+
+        if (name == null || name.isEmpty()) {
+            products = productRepository.findAllByOrderByCreatedAtDesc();
+        } else {
+            products = productRepository.findAllByNameContainingIgnoreCase(name);
+        }
         List <ProductResponseDto> productList = new ArrayList<>();
 
         for (Product product : products) {
@@ -44,12 +51,6 @@ public class ProductService {
             productList.add(new ProductResponseDto(product, scrapstatus));
         }
         return new MessageResponseDto<>(StatusEnum.OK, productList);
-
-
-        // 스트림을 사용할 수 있나? -> 테스트 중(파라미터로 id받아와야함)
-//        List <ProductResponseDto> productList =
-//                productRepository.findById(productid).stream().map(ProductResponseDto::new).collect(Collectors.toList());
-//        return productRepository.findAllByOrderByCreatedAtDesc().stream().map(Product -> new MessageResponseDto<>(StatusEnum.OK, productList)).collect(Collectors.toList());
     }
 
     // 상품 상세페이지
@@ -111,21 +112,6 @@ public class ProductService {
     // 게시글 찾기 함수
     public Product findProductPost(Long productid) {
         return productRepository.findById(productid).orElseThrow(() -> new ApiException(ExceptionEnum.NOT_FOUND_PRODUCT_ID));
-    }
-
-    // 상품 검색
-    public MessageResponseDto<List<ProductResponseDto>>searchName(User user, String name) {
-        // 아래 findAllByNameContainingIgnoreCase를 안쓴다면
-        // name = "%" + name + "%"; 그리고 jpa 변경 -> searchByNameLike or findAllByNameLike
-        List<Product> products = productRepository.findAllByNameContainingIgnoreCase(name);
-        List<ProductResponseDto> productList = new ArrayList<>();
-
-        for (Product product : products) {
-            boolean scrapstatus = false;
-            if (user != null) scrapstatus = checkScrap(product, user);
-            productList.add(new ProductResponseDto(product, scrapstatus));
-        }
-        return new MessageResponseDto<>(StatusEnum.OK, productList);
     }
 
 }

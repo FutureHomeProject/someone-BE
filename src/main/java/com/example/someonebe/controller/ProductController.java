@@ -23,18 +23,18 @@ public class ProductController {
         return productService.createProduct(userDetails.getUser());
     }
 
-//    // 메인,상품 전체조회 페이지
+//    // 메인,상품 전체조회 & 상품 검색
 //    // 전체 게시글은 비회원도 볼 수 있다. 하지만 인증 user를 주는 이유
 //    // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
     @GetMapping("/products")
-    public MessageResponseDto<List<ProductResponseDto>> getProducts(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+    public MessageResponseDto<List<ProductResponseDto>> getProducts(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestParam(value = "name", defaultValue = "") String name) {
         // user가 토큰 없이도 조회가 가능하다
         User user = null;
         if (userDetails != null) user = userDetails.getUser();
-        return productService.getProducts(user);
+        return productService.getProducts(user, name);
     }
 
-//    // 상품 상세페이지
+    // 상품 상세페이지
     // 상세 게시글은 비회원도 볼 수 있다. 하지만 인증 user를 주는 이유
     // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
     @GetMapping("/products/{productid}")
@@ -50,19 +50,5 @@ public class ProductController {
     public MessageResponseDto scrap(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid) {
         return productService.scrap(userDetails.getUser(), productid);
     }
-
-    // 상품 검색
-    @GetMapping("/products/search")
-    public MessageResponseDto<List<ProductResponseDto>> searchName(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestParam(value = "name") String name) {
-        // 비회원도 검색 가능
-        User user = null;
-        if (userDetails != null) user = userDetails.getUser();
-        return productService.searchName(user, name);
-    }
-
-
-
-
-
 
 }
