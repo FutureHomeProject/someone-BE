@@ -16,19 +16,19 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping
+@RequestMapping("/houses")
 public class BoardController {
 
     private final BoardService boardService;
 
-    @PostMapping("/")
+    @PostMapping("/write")
     public MessageResponseDto writeBoard(
             @RequestBody @Valid BoardRequestDto boardRequestDto,
             @AuthenticationPrincipal final UserDetailsImpl userDetails) {
         return boardService.writeBoard(boardRequestDto, userDetails.getUser());
     }
 
-    @PutMapping("/{boardId}")
+    @PutMapping("/{house-id}")
     public MessageResponseDto updateBoard(
             @PathVariable Long boardId,
             @RequestBody @Valid BoardRequestDto boardRequest,
@@ -36,13 +36,12 @@ public class BoardController {
         return boardService.updateBoard(boardId, boardRequest, userDetails.getUser());
     }
 
-    @GetMapping("/list")
+    @GetMapping
     public List<BoardListResponseDto> getBoardList() {
         return boardService.getBoardList();
     }
 
-    // 상세페이지 (토큰 x)
-    @GetMapping("/detail/{boardId}")
+    @GetMapping("/{house-id}")
     public BoardDetailResponseDto getBoardDetailList(@PathVariable Long boardId, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         User user = null;
         if (userDetails != null) user = userDetails.getUser();
