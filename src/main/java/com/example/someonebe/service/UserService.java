@@ -9,6 +9,9 @@ import com.example.someonebe.dto.response.LoginResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.request.SignupRequestDto;
 import com.example.someonebe.dto.response.StatusEnum;
+import com.example.someonebe.dto.response.MessageResponseDto;
+import com.example.someonebe.dto.request.SignupRequestDto;
+import com.example.someonebe.dto.response.StatusEnum;
 import com.example.someonebe.entity.User;
 import com.example.someonebe.exception.ApiException;
 import com.example.someonebe.exception.ExceptionEnum;
@@ -81,6 +84,7 @@ public class UserService {
                 user.getRole(),
                 user.getNickname()));
         return new LoginResponseDto(StatusEnum.OK, user.getNickname(), "null");
+//        return new MessageResponseDto(StatusEnum.OK, null);
     }
     
     @Transactional(readOnly = true)
