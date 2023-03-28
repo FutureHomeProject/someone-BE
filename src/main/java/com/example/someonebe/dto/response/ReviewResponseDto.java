@@ -25,7 +25,7 @@ public class ReviewResponseDto {
         this.image = review.getImage();
         this.price = product.getPrice();
         this.comment = review.getComment();
-        this.reviewpoint = review.getReviewcount();
+        this.reviewpoint = review.getReviewpoint();
         this.createdAt = review.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
     }
 }
