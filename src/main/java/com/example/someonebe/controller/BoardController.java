@@ -1,8 +1,11 @@
 package com.example.someonebe.controller;
 
 import com.example.someonebe.dto.request.BoardRequestDto;
+import com.example.someonebe.dto.response.BoardDetailResponseDto;
 import com.example.someonebe.dto.response.BoardListResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
+import com.example.someonebe.entity.User;
+import com.example.someonebe.security.UserDetailsImpl;
 import com.example.someonebe.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -42,9 +45,7 @@ public class BoardController {
     @GetMapping("/detail/{boardId}")
     public BoardDetailResponseDto getBoardDetailList(@PathVariable Long boardId, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         User user = null;
-        if(userDetails != null) {
-            user = userService.getUserByUsername(userDetails.getUsername());
-        }
+        if (userDetails != null) user = userDetails.getUser();
         return boardService.getBoardDetailList(boardId, user);
     }
 }

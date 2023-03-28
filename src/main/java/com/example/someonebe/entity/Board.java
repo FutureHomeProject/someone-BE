@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Board extends Timestamped {
+public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -37,6 +37,9 @@ public class Board extends Timestamped {
     @Column(nullable = false)
     private String nickname;
 
+    @Column(nullable = false)
+    private Long userid;
+
     public Board(BoardRequestDto boardRequestDto, User user) {
         this.dwellingtype = boardRequestDto.getDwellingtype();
         this.average = boardRequestDto.getAverage();
@@ -44,6 +47,7 @@ public class Board extends Timestamped {
         this.image = boardRequestDto.getImage();
         this.contents = boardRequestDto.getContents();
         this.region = boardRequestDto.getRegion();
+        this.userid = user.getId();
     }
 
     public void update(BoardRequestDto boardRequestDto) {

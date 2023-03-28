@@ -4,7 +4,11 @@ import com.example.someonebe.dto.request.BoardRequestDto;
 import com.example.someonebe.dto.response.BoardDetailResponseDto;
 import com.example.someonebe.dto.response.BoardListResponseDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
+import com.example.someonebe.dto.response.StatusEnum;
 import com.example.someonebe.entity.Board;
+import com.example.someonebe.entity.User;
+import com.example.someonebe.exception.ApiException;
+import com.example.someonebe.exception.ExceptionEnum;
 import com.example.someonebe.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,7 +27,7 @@ public class BoardService {
     public MessageResponseDto writeBoard(BoardRequestDto boardRequestDto, User user) {
         Board board = new Board(boardRequestDto, user);
         boardRepository.saveAndFlush(new Board(boardRequestDto, user));
-        return new MessageResponseDto(StatusEnum.OK);
+        return new MessageResponseDto(StatusEnum.OK, "null");
     }
 
     @Transactional
@@ -34,12 +38,13 @@ public class BoardService {
         Board board = boardRepository.findById(boardId).orElseThrow(
                 () -> new ApiException(ExceptionEnum.NOT_FOUND_POST_ALL)
         );
+
         boardRepository.findByIdAndUserid(boardId, user.getId()).orElseThrow(
                 () -> new ApiException(ExceptionEnum.NOT_FOUND_POST)
         );
 
         board.update(boardRequestDto);
-        return new MessageResponseDto(StatusEnum.OK);
+        return new MessageResponseDto(StatusEnum.OK, "null");
     }
 
     @Transactional
@@ -51,7 +56,7 @@ public class BoardService {
             throw new ApiException(ExceptionEnum.NOT_FOUND_POST);
         }
         boardRepository.deleteById(boardId);
-        return new MessageResponseDto(StatusEnum.OK);
+        return new MessageResponseDto(StatusEnum.OK, "null");
     }
 
     //메인페이지 전체 글 리스트 조회  -토큰 x
