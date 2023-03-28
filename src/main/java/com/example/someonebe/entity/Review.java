@@ -22,7 +22,7 @@ public class Review extends Timestamped{
     private String comment;
 
     @Column(nullable = false)
-    private String reviewcount;
+    private String reviewpoint;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
@@ -35,7 +35,7 @@ public class Review extends Timestamped{
     public Review(ReviewRequestDto reviewRequestDto, User user, Product product) {
         this.image = reviewRequestDto.getImage();
         this.comment = reviewRequestDto.getComment();
-        this.reviewcount = reviewRequestDto.getReviewpoint();
+        this.reviewpoint = reviewRequestDto.getReviewpoint();
         this.user = user;
         this.product = product;
     }
@@ -43,6 +43,7 @@ public class Review extends Timestamped{
     public void update(ReviewRequestDto reviewRequestDto) {
         this.image = reviewRequestDto.getImage();
         this.comment = reviewRequestDto.getComment();
+        this.reviewpoint = reviewRequestDto.getReviewpoint();
     }
 
 }

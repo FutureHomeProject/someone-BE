@@ -58,16 +58,18 @@ public class ProductService {
     public MessageResponseDto detailProduct(User user, Long productid) {
         // 게시글 찾기
         Product product = findProductPost(productid);
+        
+        boolean scrapstatus = false;
+        if (user != null) scrapstatus = checkScrap(product, user);
 
         // Entity의 reviews에서 댓글을 하나씩 꺼내 response리스트에 넣어주기
         List <ReviewResponseDto> reviewList = new ArrayList<>();
-        for (Review review : product.getReviews()) {
-            reviewList.add(new ReviewResponseDto(review, product));
+        for (Review review1 : product.getReviews()) {
+            reviewList.add(new ReviewResponseDto(review1, product));
         }
 
-        boolean scrapstatus = false;
-        if (user != null) scrapstatus = checkScrap(product, user);
-        ProductDetailResponseDto productDetailResponseDto = new ProductDetailResponseDto(product, reviewList, scrapstatus);
+        Review review = product.getReviews().stream().findFirst().orElse(null);
+        ProductDetailResponseDto productDetailResponseDto = new ProductDetailResponseDto(review, product, reviewList, scrapstatus);
 
         return new MessageResponseDto<>(StatusEnum.OK, productDetailResponseDto);
     }

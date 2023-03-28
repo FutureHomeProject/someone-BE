@@ -1,6 +1,7 @@
 package com.example.someonebe.dto.response;
 
 import com.example.someonebe.entity.Product;
+import com.example.someonebe.entity.Review;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,7 +25,7 @@ public class ProductDetailResponseDto {
     private String createdAt;
     private List<ReviewResponseDto> reviewList = new ArrayList<>();
 
-    public ProductDetailResponseDto(Product product, List<ReviewResponseDto> reviewList, boolean scrapstatus) {
+    public ProductDetailResponseDto(Review review, Product product, List<ReviewResponseDto> reviewList, boolean scrapstatus) {
         this.id = product.getId();
         this.image = product.getImage();
         this.title = product.getTitle();
@@ -33,7 +34,7 @@ public class ProductDetailResponseDto {
         this.content = product.getContent();
         this.scrapcount = product.getScrapcount();
         this.scrapstatus = scrapstatus;
-        this.reviewpoint = product.getReviewpoint();
+        this.reviewpoint = review.getReviewpoint();
         this.createdAt = product.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
         this.reviewList = reviewList;
     }
