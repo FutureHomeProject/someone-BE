@@ -9,5 +9,6 @@ public class ReviewRequestDto {
 
     private String image;
     private String comment;
+    private String reviewpoint;
 
 }

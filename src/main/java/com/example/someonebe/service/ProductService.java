@@ -94,7 +94,6 @@ public class ProductService {
         ScrapResponseDto scrapResponseDto = new ScrapResponseDto(countScrap(product), scrapstatus);
 
         return new MessageResponseDto(StatusEnum.OK, scrapResponseDto);
-
     }
 
     // 스크랩 여부
@@ -112,6 +111,21 @@ public class ProductService {
     // 게시글 찾기 함수
     public Product findProductPost(Long productid) {
         return productRepository.findById(productid).orElseThrow(() -> new ApiException(ExceptionEnum.NOT_FOUND_PRODUCT_ID));
+    }
+
+    // 상품 검색
+    public MessageResponseDto<List<ProductResponseDto>>searchName(User user, String name) {
+        // 아래 findAllByNameContainingIgnoreCase를 안쓴다면
+        // name = "%" + name + "%"; 그리고 jpa 변경 -> searchByNameLike or findAllByNameLike
+        List<Product> products = productRepository.findAllByNameContainingIgnoreCase(name);
+        List<ProductResponseDto> productList = new ArrayList<>();
+
+        for (Product product : products) {
+            boolean scrapstatus = false;
+            if (user != null) scrapstatus = checkScrap(product, user);
+            productList.add(new ProductResponseDto(product, scrapstatus));
+        }
+        return new MessageResponseDto<>(StatusEnum.OK, productList);
     }
 
 }

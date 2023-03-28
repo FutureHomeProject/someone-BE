@@ -28,4 +28,13 @@ public class ProductResponseDto {
         this.createdAt = product.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
     }
 
+    public ProductResponseDto(Product product) {
+        this.id = product.getId();
+        this.image = product.getImage();
+        this.title = product.getTitle();
+        this.nickname = getNickname();
+        this.scrapcount = product.getScrapcount();
+        this.createdAt = product.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
+    }
+
 }

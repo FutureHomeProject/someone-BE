@@ -13,7 +13,9 @@ public enum ExceptionEnum {
 //    PRODUCT_FIND_FAILED(HttpStatus.BAD_REQUEST, "상품 조회를 실패했습니다."),
     NOT_MATCH_USER(HttpStatus.BAD_REQUEST, "사용자가 일치하지 않습니다."),
     NOT_FOUND_PRODUCT_ID(HttpStatus.BAD_REQUEST, "존재하지 않는 상품 게시글 입니다."),
-    NOT_FOUND_Review(HttpStatus.BAD_REQUEST, "존재하지 않는 댓글 입니다.");
+    NOT_FOUND_REVIEW(HttpStatus.BAD_REQUEST, "존재하지 않는 댓글 입니다."),
+    SEARCH_FAILD(HttpStatus.BAD_REQUEST, "검색 상품이 존재하지 않습니다.");
+
 
     private HttpStatus status;
     private String message;

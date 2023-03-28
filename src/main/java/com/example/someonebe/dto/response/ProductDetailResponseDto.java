@@ -18,6 +18,7 @@ public class ProductDetailResponseDto {
     private String content;
     private int scrapcount;
     private boolean scrapstatus;
+    private String reviewpoint;
     private String createdAt;
     private List<ReviewResponseDto> reviewList = new ArrayList<>();
 
@@ -28,6 +29,7 @@ public class ProductDetailResponseDto {
         this.content = product.getContent();
         this.scrapcount = product.getScrapcount();
         this.scrapstatus = scrapstatus;
+        this.reviewpoint = product.getReviewpoint();
         this.createdAt = product.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
         this.reviewList = reviewList;
     }
