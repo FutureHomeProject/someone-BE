@@ -31,7 +31,7 @@ public class ReviewService {
         // 게시글에 댓글 저장
         Review review = reviewRepository.saveAndFlush(new Review(reviewRequestDto, user, product));
         // 작성한 댓글을 지정한 response 형식으로 반환
-        ReviewResponseDto reviewResponseDto = new ReviewResponseDto(review);
+        ReviewResponseDto reviewResponseDto = new ReviewResponseDto(review, product);
         return new MessageResponseDto(StatusEnum.OK, reviewResponseDto);
     }
 
@@ -39,14 +39,14 @@ public class ReviewService {
     @Transactional
     public MessageResponseDto updateReview(User user, Long productid, Long reviewid, ReviewRequestDto reviewRequestDto) {
         // 댓글 수정할 게시글 존재 확인
-        findProductPost(productid);
+        Product product = findProductPost(productid);
         // 수정할 댓글 찾기
         Review review = findReview(reviewid);
         // 댓글 내가 쓴건지 확인
         matchUser(reviewid, user);
         // Entity에 정의한 update메서드 실행
         review.update(reviewRequestDto);
-        return new MessageResponseDto(StatusEnum.OK, new ReviewResponseDto(review));
+        return new MessageResponseDto(StatusEnum.OK, new ReviewResponseDto(review, product));
     }
 
     // 댓글 삭제

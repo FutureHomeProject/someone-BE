@@ -15,6 +15,8 @@ public class ProductDetailResponseDto {
     private Long id;
     private String image;
     private String title;
+    private String name;
+    private int price;
     private String content;
     private int scrapcount;
     private boolean scrapstatus;
@@ -26,6 +28,8 @@ public class ProductDetailResponseDto {
         this.id = product.getId();
         this.image = product.getImage();
         this.title = product.getTitle();
+        this.name = product.getName();
+        this.price = product.getPrice();
         this.content = product.getContent();
         this.scrapcount = product.getScrapcount();
         this.scrapstatus = scrapstatus;
