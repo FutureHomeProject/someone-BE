@@ -19,6 +19,7 @@ public enum ExceptionEnum {
     PASSWORD_MISMATCH(HttpStatus.BAD_REQUEST, "비밀번호가 일치하지 않습니다."),
 
     NOT_FOUND_HOUSE_ID(HttpStatus.BAD_REQUEST, "존재하지 않는 집들이 게시글 입니다."),
+    NOT_FOUND_IMAGE(HttpStatus.NOT_FOUND, "이미지 파일이 필요합니다."),
     NOT_FOUND_BOARD_COMMENT(HttpStatus.BAD_REQUEST, "집들이 게시글 댓글이 존재하지 않습니다.");
 
 

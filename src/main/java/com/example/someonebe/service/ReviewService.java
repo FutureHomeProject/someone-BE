@@ -29,6 +29,11 @@ public class ReviewService {
     public MessageResponseDto addReview(User user, Long productid, ReviewRequestDto reviewRequestDto) {
         // 댓글 작성할 게시글 존재 확인
         Product product = findProductPost(productid);
+        //image파일 비어있을때 예외처리
+        if (reviewRequestDto.getImage() == null || reviewRequestDto.getImage().isEmpty()) {
+            // 적절한 오류 메시지와 함께 응답을 반환하거나 예외를 던집니다.
+            throw new ApiException(ExceptionEnum.NOT_FOUND_IMAGE);
+        }
         // 이미지를 S3에 업로드하고 파일 이름을 가져옴
         String fileName = fileStorageService.storeFile(reviewRequestDto.getImage());
         // 파일 이름을 사용하여 S3 URL을 가져옴
