@@ -4,9 +4,12 @@ import com.example.someonebe.dto.request.ReviewRequestDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.security.UserDetailsImpl;
 import com.example.someonebe.service.ReviewService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequiredArgsConstructor
@@ -15,8 +18,12 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     // 상품 게시글 댓글 작성
-    @PostMapping("/products/{productid}/reviews/write")
-    public MessageResponseDto addReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @RequestBody ReviewRequestDto reviewRequestDto) {
+    @PostMapping(value = "/products/{productid}/reviews/write", consumes = {"multipart/form-data"})
+    public MessageResponseDto addReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @RequestPart("image") MultipartFile image, @RequestPart("comment") String comment, @RequestPart("reviewpoint") String reviewpoint) {
+        System.out.println("=======클릭은 되고 있나======");
+        System.out.println(comment);
+        System.out.println(image.getOriginalFilename());
+        ReviewRequestDto reviewRequestDto = new ReviewRequestDto(image, comment, reviewpoint);
         return reviewService.addReview(userDetails.getUser(), productid, reviewRequestDto);
     }
 
@@ -24,7 +31,7 @@ public class ReviewController {
     @PatchMapping("/products/{productid}/reviews/{reviewid}")
     public MessageResponseDto updateReview(@AuthenticationPrincipal UserDetailsImpl userDetails,
                                            @PathVariable Long productid, @PathVariable Long reviewid,
-                                           @RequestBody ReviewRequestDto reviewRequestDto) {
+                                           @ModelAttribute ReviewRequestDto reviewRequestDto) {
         return reviewService.updateReview(userDetails.getUser(), productid, reviewid, reviewRequestDto);
     }
 
