@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Setter
@@ -28,14 +26,31 @@ public class User {
     @Column(nullable = false)
     private String nickname;
 
+    private String email;
+
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
     private UserRoleEnum role;
+
+    private Long kakaoId;
 
     public User(String username, String password, String nickname, UserRoleEnum role) {
         this.username = username;
         this.password = password;
         this.nickname = nickname;
         this.role = role;
+    }
+
+    public User(String username, String password, String nickname, UserRoleEnum role, Long kakaoId) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.role = role;
+        this.kakaoId = kakaoId;
+    }
+
+    public User kakaoIdUpdate(Long kakaoId) {
+        this.kakaoId = kakaoId;
+        return this;
     }
 }
