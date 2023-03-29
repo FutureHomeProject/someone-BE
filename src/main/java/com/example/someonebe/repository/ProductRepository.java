@@ -8,7 +8,9 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findAllByOrderByCreatedAtDesc();
-
     List<Product> findAllByNameContainingIgnoreCase(String name);
+
+//    @Query(value = "select sum(r.) from review r")
+//    int abc;
 
 }

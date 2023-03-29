@@ -21,6 +21,7 @@ public class BoardController {
 
     private final BoardService boardService;
 
+    // 작성
     @PostMapping("/write")
     public MessageResponseDto writeBoard(
             @RequestBody @Valid BoardRequestDto boardRequestDto,
@@ -28,26 +29,37 @@ public class BoardController {
         return boardService.writeBoard(boardRequestDto, userDetails.getUser());
     }
 
-    @PutMapping("/{boardId}")
-    public MessageResponseDto updateBoard(@PathVariable Long boardId, @RequestBody @Valid BoardRequestDto boardRequest, @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        return boardService.updateBoard(boardId, boardRequest, userDetails.getUser());
+    // 수정
+    @PatchMapping("/{houseid}")
+    public MessageResponseDto updateBoard(@PathVariable Long houseid, @RequestBody @Valid BoardRequestDto boardRequest, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return boardService.updateBoard(houseid, boardRequest, userDetails.getUser());
     }
 
+    // 전체조회
     @GetMapping
     public List<BoardListResponseDto> getBoardList() {
 
         return boardService.getBoardList();
     }
 
-    @GetMapping("/{boardId}")
-    public BoardDetailResponseDto getBoardDetailList(@PathVariable Long boardId, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+    // 상세조회
+    @GetMapping("/{houseid}")
+    public BoardDetailResponseDto getBoardDetailList(@PathVariable Long houseid, @AuthenticationPrincipal UserDetailsImpl userDetails) {
         User user = null;
         if (userDetails != null) user = userDetails.getUser();
-        return boardService.getBoardDetailList(boardId, user);
+        return boardService.getBoardDetailList(houseid, user);
     }
 
-    @DeleteMapping("/{boardId}")
-    public MessageResponseDto deleteBoard(@PathVariable Long boardId, @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        return boardService.deleteBoard(boardId, userDetails.getUser());
+    // 삭제
+    @DeleteMapping("/{houseid}")
+    public MessageResponseDto deleteBoard(@PathVariable Long houseid, @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        return boardService.deleteBoard(houseid, userDetails.getUser());
     }
+
+//    // 집들이 게시글 스크랩
+//    @PostMapping("/houses/{houseid}/scrap")
+//    public MessageResponseDto houseScrap(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long houseid) {
+//        return boardService.houseScrap(userDetails.getUser(), houseid);
+//    }
+
 }

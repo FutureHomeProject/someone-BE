@@ -1,6 +1,5 @@
 package com.example.someonebe.service;
 
-import com.example.someonebe.dto.request.ReviewRequestDto;
 import com.example.someonebe.dto.response.*;
 import com.example.someonebe.entity.Product;
 import com.example.someonebe.entity.Review;
@@ -9,6 +8,7 @@ import com.example.someonebe.entity.User;
 import com.example.someonebe.exception.ApiException;
 import com.example.someonebe.exception.ExceptionEnum;
 import com.example.someonebe.repository.ProductRepository;
+import com.example.someonebe.repository.ReviewRepository;
 import com.example.someonebe.repository.ScrapRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +22,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
     private final ScrapRepository scrapRepository;
+    private final ReviewRepository reviewRepository;
 
     // 상품 등록 -- 확인용
     @Transactional
@@ -36,7 +37,6 @@ public class ProductService {
     // 전체 상품 조회 / 검색
     @Transactional
     public MessageResponseDto getProducts(User user, String name) {
-
         List<Product> products;
 
         if (name == null || name.isEmpty()) {
@@ -56,23 +56,26 @@ public class ProductService {
 
     // 상품 상세페이지
     @Transactional
-    public MessageResponseDto detailProduct(User user, Long productid, ReviewRequestDto reviewRequestDto) {
+    public MessageResponseDto detailProduct(User user, Long productid) {
         // 게시글 찾기
         Product product = findProductPost(productid);
-        
+        // 평균 별점 가져오기
+        int reviewpoint = reviewRepository.starPoint(productid);
+        // 댓글 가져오기
+        List<Review> reviews = reviewRepository.findAllByProduct(product);
+        // 스크랩 판별
         boolean scrapstatus = false;
         if (user != null) scrapstatus = checkScrap(product, user);
 
-        // Entity의 reviews에서 댓글을 하나씩 꺼내 response리스트에 넣어주기
-        List <ReviewResponseDto> reviewList = new ArrayList<>();
-        for (Review review1 : product.getReviews()) {
-            reviewList.add(new ReviewResponseDto(review1, product));
+        List<ProductDetailResponseDto> responseDetailList = new ArrayList<>();
+        List<ReviewResponseDto> responseList = new ArrayList<>();
+        for (Review review : reviews) {
+            ReviewResponseDto reviewResponseDto = new ReviewResponseDto(review, product);
+            responseList.add(reviewResponseDto);
         }
-
-        Review review = new Review(reviewRequestDto);
-        ProductDetailResponseDto productDetailResponseDto = new ProductDetailResponseDto(review, product, reviewList, scrapstatus);
-
-        return new MessageResponseDto<>(StatusEnum.OK, productDetailResponseDto);
+        ProductDetailResponseDto productDetailResponseDto = new ProductDetailResponseDto(reviewpoint, product, responseList, scrapstatus);
+        responseDetailList.add(productDetailResponseDto);
+        return new MessageResponseDto<>(StatusEnum.OK, responseDetailList);
     }
 
     // 상품 스크랩
@@ -103,6 +106,7 @@ public class ProductService {
 
     // 스크랩 여부
     public boolean checkScrap(Product product, User user) {
+        // 인증유저가 아니면 스크랩 안눌린 상태
         if (user == null) return false;
         Optional<Scrap> scrap = scrapRepository.findByProductAndUser(product, user);
         return scrap.isPresent();

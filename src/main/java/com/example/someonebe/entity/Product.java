@@ -46,9 +46,9 @@ public class Product extends Timestamped{
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @JsonIgnore
-    @OneToMany(orphanRemoval = true, mappedBy = "product")
-    private List<Review> reviews = new ArrayList<>();
+//    @JsonIgnore// Product 엔티티를 json으로 변환할 때, 양방향일 때 직렬화중 무한 재귀 방지
+//    @OneToMany(orphanRemoval = true, mappedBy = "product")
+//    private List<Review> reviews = new ArrayList<>();
 
     public Product(User user) {
         this.image = getImage();

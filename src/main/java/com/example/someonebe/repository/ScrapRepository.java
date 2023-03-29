@@ -9,4 +9,6 @@ import java.util.Optional;
 
 public interface ScrapRepository extends JpaRepository<Scrap, Long> {
     Optional<Scrap> findByProductAndUser(Product product, User user);
+
+
 }

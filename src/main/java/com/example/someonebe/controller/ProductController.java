@@ -39,11 +39,11 @@ public class ProductController {
     // 상세 게시글은 비회원도 볼 수 있다. 하지만 인증 user를 주는 이유
     // -> 자신의 아이디로 로그인 했을 때 스크랩 버튼 눌렀나 안눌렀나 확인하기 위해?
     @GetMapping("/products/{productid}")
-    public MessageResponseDto detailProduct(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, ReviewRequestDto reviewRequestDto) {
+    public MessageResponseDto detailProduct(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid) {
         // user가 토큰 없이도 조회가 가능하다
         User user = null;
         if (userDetails != null) user = userDetails.getUser();
-        return productService.detailProduct(user, productid, reviewRequestDto);
+        return productService.detailProduct(user, productid);
     }
 
     // 상픔 스크랩
