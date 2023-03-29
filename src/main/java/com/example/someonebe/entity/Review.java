@@ -1,10 +1,8 @@
 package com.example.someonebe.entity;
 
 import com.example.someonebe.dto.request.ReviewRequestDto;
-import com.example.someonebe.service.FileStorageService;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 

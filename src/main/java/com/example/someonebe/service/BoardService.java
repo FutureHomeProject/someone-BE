@@ -9,7 +9,6 @@ import com.example.someonebe.exception.ApiException;
 import com.example.someonebe.exception.ExceptionEnum;
 import com.example.someonebe.repository.BoardCommentRepository;
 import com.example.someonebe.repository.BoardRepository;
-import com.example.someonebe.repository.ScrapRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,11 +23,17 @@ public class BoardService {
 
     private final BoardRepository boardRepository;
     private final BoardCommentRepository boardCommentRepository;
+    private final FileStorageService fileStorageService;
 
     // 집들이 작성
     @Transactional
-    public MessageResponseDto writeBoard(BoardRequestDto boardRequestDto, User user) {
-        boardRepository.saveAndFlush(new Board(boardRequestDto, user));
+    public MessageResponseDto writeBoard(BoardRequestDto boardRequestDto, User user, MultipartFile image) {
+        // 이미지를 S3에 업로드하고 파일 이름을 가져옴
+        String fileName = fileStorageService.storeFile(image);
+        // 파일 이름을 사용하여 S3 URL을 가져옴
+        String imageUrl = fileStorageService.getFileUrl(fileName);
+
+        boardRepository.saveAndFlush(new Board(boardRequestDto, user, imageUrl));
         return new MessageResponseDto(StatusEnum.OK, "null");
     }
 
@@ -36,13 +41,26 @@ public class BoardService {
     @Transactional
     public MessageResponseDto updateBoard(Long houseid,
                                           BoardRequestDto boardRequestDto,
-                                          User user) {
+                                          User user,
+                                          MultipartFile image) {
         // 수정할 집들이 찾기
         Board board = findPost(houseid);
         // 집들이 내가 썻나 확인
         checkMyPost(houseid, user);
 
-        board.update(boardRequestDto);
+        //기존 이미지 삭제
+        String oldImageUrl = board.getImageUrl();
+        if (oldImageUrl != null && oldImageUrl.isEmpty()) {
+            String oldFileName = oldImageUrl.substring(oldImageUrl.lastIndexOf("/") + 1);
+            fileStorageService.deleteFile(oldFileName);
+        }
+
+        // 이미지를 S3에 업로드하고 파일 이름을 가져옴
+        String fileName = fileStorageService.storeFile(image);
+        // 파일 이름을 사용하여 S3 URL을 가져옴
+        String imageUrl = fileStorageService.getFileUrl(fileName);
+
+        board.update(boardRequestDto, imageUrl);
         return new MessageResponseDto(StatusEnum.OK, "null");
     }
 
@@ -50,9 +68,15 @@ public class BoardService {
     @Transactional
     public MessageResponseDto deleteBoard(Long houseid, User user) {
         // 집들이 존재 확인
-        findPost(houseid);
+        Board board = findPost(houseid);
         // 집들이 내가 썻나 확인
         checkMyPost(houseid, user);
+        // s3저장된 이미지 삭제
+        String imageUrl = board.getImageUrl();
+        if (imageUrl != null && !imageUrl.isEmpty()) {
+            String fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1);
+            fileStorageService.deleteFile(fileName);
+        }
         boardRepository.deleteById(houseid);
         return new MessageResponseDto(StatusEnum.OK, "null");
     }

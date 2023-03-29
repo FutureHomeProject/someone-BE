@@ -33,9 +33,14 @@ public class KakaoService {
 
     public String kakaoLogin(String code, HttpServletResponse response) throws JsonProcessingException {
         // 1. "인가 코드"로 "액세스 토큰" 요청
+        // 인가코드 -> 로그인 후 서비스제공자(카카오)로부터 받는 임시 코드
+        // 인가코드는 일회성 그리고 짧은 시간내에 사용되어야함
         String accessToken = getToken(code);
 
         // 2. 토큰으로 카카오 API 호출 : "액세스 토큰"으로 "카카오 사용자 정보" 가져오기
+        // 액세스 토큰 서비스 제공자(카카오) api 호출할 떄 사용하는 인증 수단
+        // 액세스 토큰으로 추가 정보를 요청할 수 있고 이용자의 동의를 얻은 기능 실행 가능(친구목록, 메시지 전송, 프로필가져오기 등??)
+        // 액세스 토큰 만료시 리프레시토큰으로 새로 발급
         KakaoUserInfoDto kakaoUserInfo = getKakaoUserInfo(accessToken);
 
         // 3. 필요시에 회원가입

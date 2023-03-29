@@ -12,14 +12,14 @@ public class BoardListResponseDto {
 
     private Long id;
     private String title;
-    private String image;
+    private String imageUrl;
     private String nickname;
     private String createdAt;
 
     public BoardListResponseDto(Board board) {
         this.id = board.getId();
         this.title = board.getTitle();
-        this.image = board.getImage();
+        this.imageUrl = board.getImageUrl();
         this.nickname = board.getNickname();
         this.createdAt = board.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
     }
