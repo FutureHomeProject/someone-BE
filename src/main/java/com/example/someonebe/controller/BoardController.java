@@ -26,11 +26,9 @@ public class BoardController {
     // 작성
     @PostMapping(value = "/write", consumes = {"multipart/form-data"})
     public MessageResponseDto writeBoard(
-        @RequestBody @Valid BoardRequestDto boardRequestDto,
-        @AuthenticationPrincipal final UserDetailsImpl userDetails,
-        @RequestPart("image") MultipartFile image
-            ) {
-        return boardService.writeBoard(boardRequestDto, userDetails.getUser(), image);
+        @ModelAttribute @Valid BoardRequestDto boardRequestDto,
+        @AuthenticationPrincipal final UserDetailsImpl userDetails) {
+        return boardService.writeBoard(boardRequestDto, userDetails.getUser(), boardRequestDto.getImage());
     }
 
     // 수정
