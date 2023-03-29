@@ -12,7 +12,7 @@ public class ReviewResponseDto {
     private Long id;
     private String nickname;
     private String name;
-    private String imageUrl;
+    private String image;
     private int price;
     private String comment;
     private String reviewpoint;
@@ -22,7 +22,7 @@ public class ReviewResponseDto {
         this.id = review.getId();
         this.nickname = review.getUser().getNickname();
         this.name = product.getName();
-        this.imageUrl = review.getImageUrl();
+        this.image = review.getImageUrl();
         this.price = product.getPrice();
         this.comment = review.getComment();
         this.reviewpoint = review.getReviewpoint();

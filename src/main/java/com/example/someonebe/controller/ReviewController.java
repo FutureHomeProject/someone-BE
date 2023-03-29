@@ -20,9 +20,7 @@ public class ReviewController {
     // 상품 게시글 댓글 작성
     @PostMapping(value = "/products/{productid}/reviews/write", consumes = {"multipart/form-data"})
     public MessageResponseDto addReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @RequestPart("image") MultipartFile image, @RequestPart("comment") String comment, @RequestPart("reviewpoint") String reviewpoint) {
-        System.out.println("=======클릭은 되고 있나======");
-        System.out.println(comment);
-        System.out.println(image.getOriginalFilename());
+
         ReviewRequestDto reviewRequestDto = new ReviewRequestDto(image, comment, reviewpoint);
         return reviewService.addReview(userDetails.getUser(), productid, reviewRequestDto);
     }
