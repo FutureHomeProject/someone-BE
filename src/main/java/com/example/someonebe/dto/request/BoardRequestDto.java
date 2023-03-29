@@ -2,6 +2,7 @@ package com.example.someonebe.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
@@ -20,7 +21,7 @@ public class BoardRequestDto {
     private String title;
 
     @NotBlank(message = "이미지를 업로드해주세요.")
-    private String image;
+    private MultipartFile image;
 
     @NotBlank(message = "내용을 입력해주세요.")
     private String contents;

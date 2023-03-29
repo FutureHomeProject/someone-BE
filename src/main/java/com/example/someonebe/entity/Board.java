@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor
@@ -25,7 +24,7 @@ public class Board extends Timestamped{
     private String title;
 
     @Column(nullable = false)
-    private String image;
+    private String imageUrl;
 
     @Column(nullable = false)
     private String contents;
@@ -40,22 +39,22 @@ public class Board extends Timestamped{
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Board(BoardRequestDto boardRequestDto, User user) {
+    public Board(BoardRequestDto boardRequestDto, User user, String imageUrl) {
         this.dwellingtype = boardRequestDto.getDwellingtype();
         this.average = boardRequestDto.getAverage();
         this.title = boardRequestDto.getTitle();
-        this.image = boardRequestDto.getImage();
+        this.imageUrl = imageUrl;
         this.contents = boardRequestDto.getContents();
         this.region = boardRequestDto.getRegion();
         this.nickname = user.getNickname();
         this.user = user;
     }
 
-    public void update(BoardRequestDto boardRequestDto) {
+    public void update(BoardRequestDto boardRequestDto, String imageUrl) {
         this.dwellingtype = boardRequestDto.getDwellingtype();
         this.average = boardRequestDto.getAverage();
         this.title = boardRequestDto.getTitle();
-        this.image = boardRequestDto.getImage();
+        this.imageUrl = imageUrl;
         this.contents = boardRequestDto.getContents();
         this.region = boardRequestDto.getRegion();
     }

@@ -11,7 +11,6 @@ import com.example.someonebe.exception.ApiException;
 import com.example.someonebe.exception.ExceptionEnum;
 import com.example.someonebe.repository.ProductRepository;
 import com.example.someonebe.repository.ReviewRepository;
-import com.example.someonebe.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,10 +19,11 @@ import javax.transaction.Transactional;
 @Service
 @RequiredArgsConstructor
 public class ReviewService {
+
     private final ReviewRepository reviewRepository;
     private final ProductRepository productRepository;
-    private final UserRepository userRepository;
     private final FileStorageService fileStorageService;
+
     // 상품 게시글 댓글 작성
     @Transactional
     public MessageResponseDto addReview(User user, Long productid, ReviewRequestDto reviewRequestDto) {

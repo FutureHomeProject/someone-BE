@@ -15,7 +15,7 @@ public class BoardDetailResponseDto {
     private String dwellingtype;
     private String average;
     private String title;
-    private String image;
+    private String imageUrl;
     private String contents;
     private String region;
     private String nickname;
@@ -27,7 +27,7 @@ public class BoardDetailResponseDto {
         this.dwellingtype = board.getDwellingtype();
         this.average = board.getAverage();
         this.title = board.getTitle();
-        this.image = board.getImage();
+        this.imageUrl = board.getImageUrl();
         this.region = board.getRegion();
         this.contents = board.getContents();
         this.nickname = board.getNickname();
