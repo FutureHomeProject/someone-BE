@@ -16,7 +16,10 @@ public enum ExceptionEnum {
     NOT_FOUND_PRODUCT_ID(HttpStatus.BAD_REQUEST, "존재하지 않는 상품 게시글 입니다."),
     NOT_FOUND_REVIEW(HttpStatus.BAD_REQUEST, "존재하지 않는 댓글 입니다."),
     SEARCH_FAILD(HttpStatus.BAD_REQUEST, "검색 상품이 존재하지 않습니다."),
-    PASSWORD_MISMATCH(HttpStatus.BAD_REQUEST, "비밀번호가 일치하지 않습니다.");
+    PASSWORD_MISMATCH(HttpStatus.BAD_REQUEST, "비밀번호가 일치하지 않습니다."),
+
+    NOT_FOUND_HOUSE_ID(HttpStatus.BAD_REQUEST, "존재하지 않는 집들이 게시글 입니다."),
+    NOT_FOUND_BOARD_COMMENT(HttpStatus.BAD_REQUEST, "집들이 게시글 댓글이 존재하지 않습니다.");
 
 
     private HttpStatus status;

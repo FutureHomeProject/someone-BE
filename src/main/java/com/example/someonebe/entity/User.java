@@ -32,10 +32,6 @@ public class User {
     @Enumerated(value = EnumType.STRING)
     private UserRoleEnum role;
 
-    @OneToMany
-    @JoinColumn(name = "userid")
-    List<Board> boardList = new ArrayList<>();
-
     public User(String username, String password, String nickname, UserRoleEnum role) {
         this.username = username;
         this.password = password;

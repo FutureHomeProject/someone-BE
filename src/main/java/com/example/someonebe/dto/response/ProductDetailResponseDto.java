@@ -21,11 +21,11 @@ public class ProductDetailResponseDto {
     private String content;
     private int scrapcount;
     private boolean scrapstatus;
-    private String reviewpoint;
+    private int reviewpoint;
     private String createdAt;
     private List<ReviewResponseDto> reviewList = new ArrayList<>();
 
-    public ProductDetailResponseDto(Review review, Product product, List<ReviewResponseDto> reviewList, boolean scrapstatus) {
+    public ProductDetailResponseDto(int reviewpoint, Product product, List<ReviewResponseDto> reviewList, boolean scrapstatus) {
         this.id = product.getId();
         this.image = product.getImage();
         this.title = product.getTitle();
@@ -34,7 +34,7 @@ public class ProductDetailResponseDto {
         this.content = product.getContent();
         this.scrapcount = product.getScrapcount();
         this.scrapstatus = scrapstatus;
-        this.reviewpoint = review.getReviewpoint();
+        this.reviewpoint = reviewpoint;
         this.createdAt = product.getCreatedAt().format(DateTimeFormatter.ofPattern("yyyy-MM-dd a h:mm"));
         this.reviewList = reviewList;
     }

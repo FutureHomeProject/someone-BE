@@ -2,12 +2,12 @@ package com.example.someonebe.dto.response;
 
 import com.example.someonebe.entity.Product;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 import java.time.format.DateTimeFormatter;
 
 @Getter
-@Setter
+@NoArgsConstructor
 public class ProductResponseDto {
 
     private Long id;

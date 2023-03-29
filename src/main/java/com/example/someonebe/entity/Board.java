@@ -36,10 +36,9 @@ public class Board extends Timestamped{
     @Column(nullable = false)
     private String nickname;
 
-    @Column(nullable = false)
-    private Long userid;
-
-    private LocalDateTime createdAt;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Board(BoardRequestDto boardRequestDto, User user) {
         this.dwellingtype = boardRequestDto.getDwellingtype();
@@ -48,8 +47,8 @@ public class Board extends Timestamped{
         this.image = boardRequestDto.getImage();
         this.contents = boardRequestDto.getContents();
         this.region = boardRequestDto.getRegion();
-        this.userid = user.getId();
         this.nickname = user.getNickname();
+        this.user = user;
     }
 
     public void update(BoardRequestDto boardRequestDto) {
@@ -60,4 +59,8 @@ public class Board extends Timestamped{
         this.contents = boardRequestDto.getContents();
         this.region = boardRequestDto.getRegion();
     }
+
+//    public void updateScrapcount(int scrapcount) {
+//        this.scrapcount = scrapcount;
+//    }
 }
