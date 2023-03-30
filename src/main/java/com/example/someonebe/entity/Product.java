@@ -29,8 +29,6 @@ public class Product extends Timestamped{
 
     @Column(nullable = false)
     private String brandname;
-
-
     @Column(nullable = false)
     private String title;
 
