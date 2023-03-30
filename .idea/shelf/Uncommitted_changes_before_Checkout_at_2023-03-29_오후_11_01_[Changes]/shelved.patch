@@ -1,0 +1,48 @@
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ing.level.org.apache.coyote.http11=debug\r\n#spring.profiles.include=mysql\r\n#spring.thymeleaf.cache=false\r\n#spring.jpa.properties.hibernate.show_sql=true\r\n#spring.jpa.properties.hibernate.format_sql=true\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#mysql\r\n\r\nspring.profiles.include=security\r\nspring.jpa.hibernate.ddl-auto=update\r\njwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n## h2\r\n#spring.h2.console.enabled=true\r\n#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;\r\n#spring.datasource.username=sa\r\n#spring.datasource.password=\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#\r\n#\r\n#spring.jpa.generate-ddl=true\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#logging
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 9339bc779befa044bbcd1a103fc87fed1730bd22)
++++ b/src/main/resources/application.properties	(date 1680101368533)
+@@ -8,7 +8,9 @@
+ 
+ #mysql
+ 
+-spring.profiles.include=security
++spring.datasource.url=jdbc:mysql://been-someone-db.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone_name
++spring.datasource.username=admin
++spring.datasource.password=nono9194
+ spring.jpa.hibernate.ddl-auto=update
+ jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+ 
+@@ -23,4 +25,23 @@
+ #spring.jpa.generate-ddl=true
+ #jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+ 
+-#logging
+\ No newline at end of file
++#logging
++
++#s3 Bucket
++cloud.aws.credentials.access-key=AKIAZQJZYDTFOWPLVRFS
++cloud.aws.credentials.secret-key=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
++cloud.aws.stack.auto=false
++
++#AWS S3 Service bucket
++cloud.aws.s3.bucket=been-image-s3
++cloud.aws.region.static=ap-northeast-2
++
++#AWS S3 Bucket URL
++cloud.aws.s3.bucket.url=https://s3.console.aws.amazon.com/s3/buckets/been-image-s3?region=ap-northeast-2&tab=objects
++
++#multipart size
++spring.servlet.multipart.max-request-size=1024MB
++spring.servlet.multipart.max-file-size=1024MB
++
++#?????? ??? ???
++spring.servlet.multipart.enabled=true
+\ No newline at end of file

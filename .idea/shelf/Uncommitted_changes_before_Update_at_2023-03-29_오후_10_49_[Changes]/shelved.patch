@@ -1,0 +1,95 @@
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ing.level.org.apache.coyote.http11=debug\r\n#spring.profiles.include=mysql\r\n#spring.thymeleaf.cache=false\r\n#spring.jpa.properties.hibernate.show_sql=true\r\n#spring.jpa.properties.hibernate.format_sql=true\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#mysql\r\n\r\nspring.profiles.include=security\r\nspring.jpa.hibernate.ddl-auto=update\r\njwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n## h2\r\n#spring.h2.console.enabled=true\r\n#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;\r\n#spring.datasource.username=sa\r\n#spring.datasource.password=\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#\r\n#\r\n#spring.jpa.generate-ddl=true\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#logging\r\n\r\n#s3\r\ncloud.aws.credentials.access-key=AKIAZQJZYDTFOWPLVRFS\r\ncloud.aws.credentials.secret-key=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\r\n\r\ncloud.aws.s3.bucket = someone-be-bucket\r\n\r\ncloud.aws.region.static=ap-northeast-2\r\ncloud.aws.stack.auto=false\r\n\r\ncom.example.upload.path=C:\\\\upload\\\\\r\n\r\nspring.servlet.multipart.enabled=true\r\nspring.servlet.multipart.location=C:\\\\upload\r\nspring.servlet.multipart.max-request-size=30MB\r\nspring.servlet.multipart.max-file-size=10MB
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 9b3a2d6bf856f6329793c93f4345e29c1359b756)
++++ b/src/main/resources/application.properties	(date 1680095906381)
+@@ -8,7 +8,9 @@
+ 
+ #mysql
+ 
+-spring.profiles.include=security
++spring.datasource.url=jdbc:mysql://been-someone-db.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone_name
++spring.datasource.username=admin
++spring.datasource.password=nono9194
+ spring.jpa.hibernate.ddl-auto=update
+ jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+ 
+@@ -25,18 +27,21 @@
+ 
+ #logging
+ 
+-#s3
++#s3 Bucket
+ cloud.aws.credentials.access-key=AKIAZQJZYDTFOWPLVRFS
+ cloud.aws.credentials.secret-key=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
+-
+-cloud.aws.s3.bucket = someone-be-bucket
+-
+-cloud.aws.region.static=ap-northeast-2
+ cloud.aws.stack.auto=false
+ 
+-com.example.upload.path=C:\\upload\\
++#AWS S3 Service bucket
++cloud.aws.s3.bucket=been-image-s3
++cloud.aws.region.static=ap-northeast-2
++
++#AWS S3 Bucket URL
++cloud.aws.s3.bucket.url=https://s3.console.aws.amazon.com/s3/buckets/been-image-s3?region=ap-northeast-2&tab=objects
+ 
+-spring.servlet.multipart.enabled=true
+-spring.servlet.multipart.location=C:\\upload
+-spring.servlet.multipart.max-request-size=30MB
+-spring.servlet.multipart.max-file-size=10MB
+\ No newline at end of file
++#multipart size
++spring.servlet.multipart.max-request-size=1024MB
++spring.servlet.multipart.max-file-size=1024MB
++
++#?????? ??? ???
++spring.servlet.multipart.enabled=true
+\ No newline at end of file
+Index: src/main/java/com/example/someonebe/controller/ReviewController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.someonebe.controller;\r\n\r\nimport com.example.someonebe.dto.request.ReviewRequestDto;\r\nimport com.example.someonebe.dto.response.MessageResponseDto;\r\nimport com.example.someonebe.security.UserDetailsImpl;\r\nimport com.example.someonebe.service.ReviewService;\r\nimport com.fasterxml.jackson.databind.ObjectMapper;\r\nimport lombok.RequiredArgsConstructor;\r\nimport org.springframework.http.MediaType;\r\nimport org.springframework.security.core.annotation.AuthenticationPrincipal;\r\nimport org.springframework.web.bind.annotation.*;\r\nimport org.springframework.web.multipart.MultipartFile;\r\n\r\n@RestController\r\n@RequiredArgsConstructor\r\npublic class ReviewController {\r\n\r\n    private final ReviewService reviewService;\r\n\r\n    // 상품 게시글 댓글 작성\r\n    @PostMapping(value = \"/products/{productid}/reviews/write\", consumes = {\"multipart/form-data\"})\r\n    public MessageResponseDto addReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @RequestPart(\"image\") MultipartFile image, @RequestPart(\"comment\") String comment, @RequestPart(\"reviewpoint\") String reviewpoint) {\r\n        System.out.println(\"=======클릭은 되고 있나======\");\r\n        System.out.println(comment);\r\n        System.out.println(image.getOriginalFilename());\r\n        ReviewRequestDto reviewRequestDto = new ReviewRequestDto(image, comment, reviewpoint);\r\n        return reviewService.addReview(userDetails.getUser(), productid, reviewRequestDto);\r\n    }\r\n\r\n    // 댓글 수정\r\n    @PatchMapping(\"/products/{productid}/reviews/{reviewid}\")\r\n    public MessageResponseDto updateReview(@AuthenticationPrincipal UserDetailsImpl userDetails,\r\n                                           @PathVariable Long productid, @PathVariable Long reviewid,\r\n                                           @ModelAttribute ReviewRequestDto reviewRequestDto) {\r\n        return reviewService.updateReview(userDetails.getUser(), productid, reviewid, reviewRequestDto);\r\n    }\r\n\r\n    // 댓글 삭제\r\n    @DeleteMapping(\"/products/{productid}/reviews/{reviewid}\")\r\n    public MessageResponseDto deleteReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @PathVariable Long reviewid) {\r\n        return reviewService.deleteReview(userDetails.getUser(), productid, reviewid);\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/someonebe/controller/ReviewController.java b/src/main/java/com/example/someonebe/controller/ReviewController.java
+--- a/src/main/java/com/example/someonebe/controller/ReviewController.java	(revision 9b3a2d6bf856f6329793c93f4345e29c1359b756)
++++ b/src/main/java/com/example/someonebe/controller/ReviewController.java	(date 1680099583926)
+@@ -20,9 +20,7 @@
+     // 상품 게시글 댓글 작성
+     @PostMapping(value = "/products/{productid}/reviews/write", consumes = {"multipart/form-data"})
+     public MessageResponseDto addReview(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable Long productid, @RequestPart("image") MultipartFile image, @RequestPart("comment") String comment, @RequestPart("reviewpoint") String reviewpoint) {
+-        System.out.println("=======클릭은 되고 있나======");
+-        System.out.println(comment);
+-        System.out.println(image.getOriginalFilename());
++
+         ReviewRequestDto reviewRequestDto = new ReviewRequestDto(image, comment, reviewpoint);
+         return reviewService.addReview(userDetails.getUser(), productid, reviewRequestDto);
+     }
+Index: src/main/java/com/example/someonebe/dto/response/ReviewResponseDto.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.someonebe.dto.response;\r\n\r\nimport com.example.someonebe.entity.Product;\r\nimport com.example.someonebe.entity.Review;\r\nimport lombok.Getter;\r\n\r\nimport java.time.format.DateTimeFormatter;\r\n\r\n@Getter\r\npublic class ReviewResponseDto {\r\n\r\n    private Long id;\r\n    private String nickname;\r\n    private String name;\r\n    private String image;\r\n    private int price;\r\n    private String comment;\r\n    private String reviewpoint;\r\n    private String createdAt;\r\n\r\n    public ReviewResponseDto(Review review, Product product) {\r\n        this.id = review.getId();\r\n        this.nickname = review.getUser().getNickname();\r\n        this.name = product.getName();\r\n        this.image = review.getImage();\r\n        this.price = product.getPrice();\r\n        this.comment = review.getComment();\r\n        this.reviewpoint = review.getReviewpoint();\r\n        this.createdAt = review.getCreatedAt().format(DateTimeFormatter.ofPattern(\"yyyy-MM-dd a h:mm\"));\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/example/someonebe/dto/response/ReviewResponseDto.java b/src/main/java/com/example/someonebe/dto/response/ReviewResponseDto.java
+--- a/src/main/java/com/example/someonebe/dto/response/ReviewResponseDto.java	(revision 9b3a2d6bf856f6329793c93f4345e29c1359b756)
++++ b/src/main/java/com/example/someonebe/dto/response/ReviewResponseDto.java	(date 1680096293703)
+@@ -22,7 +22,7 @@
+         this.id = review.getId();
+         this.nickname = review.getUser().getNickname();
+         this.name = product.getName();
+-        this.image = review.getImage();
++        this.image = review.getImageUrl();
+         this.price = product.getPrice();
+         this.comment = review.getComment();
+         this.reviewpoint = review.getReviewpoint();
