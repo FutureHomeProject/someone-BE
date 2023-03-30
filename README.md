@@ -1,4 +1,4 @@
-# ![image](https://user-images.githubusercontent.com/108318494/228595508-2de7b3a7-15de-454b-afb9-eec4ca6b7822.png)
+# 클론코딩 - 오늘의집
 
 <br><br>
 
@@ -38,7 +38,7 @@
 <summary>코드 컨벤션</summary>
 
 1. 구글 코드 컨벤션 적용.
-   - (따라하기)[https://velog.io/@injoon2019/IntelliJ%EC%97%90-Google-Java-Style-Guide-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0]
+   - [따라하기](https://velog.io/@injoon2019/IntelliJ%EC%97%90-Google-Java-Style-Guide-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0)
 
 2. **클래스의 첫 글자는 대문자로 시작하며 UpperCamelCase 사용.**
 ```agsl
@@ -138,6 +138,3 @@
   - 한쪽이 변경되면 다른 쪽도 업데이트가 필요한지 확인해야 하는데 이 과정에서 불필요한 데이터베이스 쿼리가 발생할 수 있으며 속도 또한 느려진다.
 
 </details>
-
-1. 프로젝트 설계시 각 DB들의 연관관계를 이해하는데 어려움. 
-   - 다이어그램을 직접 그려보며 테이블의 연관관계를 이해할 수 있었음.
