@@ -32,16 +32,14 @@ public class BoardComment {
     private Board board;
 
     public BoardComment(BoardCommentRequestDto boardCommentRequestDto, User user, Board board) {
-        this.title = boardCommentRequestDto.getTitle();
-        this.nickname = boardCommentRequestDto.getNickname();
+        this.nickname = user.getNickname();
         this.comment = boardCommentRequestDto.getComment();
         this.user = user;
         this.board = board;
     }
 
     public void updateComment(BoardCommentRequestDto boardCommentRequestDto) {
-        this.title = boardCommentRequestDto.getTitle();
-        this.nickname = boardCommentRequestDto.getNickname();
+        this.nickname = user.getNickname();
         this.comment = boardCommentRequestDto.getComment();
     }
 }
