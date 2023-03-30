@@ -41,3 +41,5 @@ public class BoardCommentController {
         boardCommentService.deleteComment(userDetails.getUser(), houseid, commentid);
     }
 }
+
+//머지 시켜주세요
