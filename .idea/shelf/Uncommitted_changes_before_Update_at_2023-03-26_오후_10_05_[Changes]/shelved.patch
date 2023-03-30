@@ -1,0 +1,45 @@
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ing.level.org.apache.coyote.http11=debug\r\n#spring.profiles.include=mysql\r\n#spring.thymeleaf.cache=false\r\n#spring.jpa.properties.hibernate.show_sql=true\r\n#spring.jpa.properties.hibernate.format_sql=true\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#mysql\r\nspring.datasource.url=jdbc:mysql://studybook-db.ckkyb2lydteh.ap-northeast-2.rds.amazonaws.com:3306/studybook\r\nspring.datasource.username=admin\r\nspring.datasource.password=apdlvmf1!\r\nspring.jpa.hibernate.ddl-auto=update\r\njwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n## h2\r\n#spring.h2.console.enabled=true\r\n#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;\r\n#spring.datasource.username=sa\r\n#spring.datasource.password=\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#\r\n#\r\n#spring.jpa.generate-ddl=true\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 391d0d05710811c4cd94e8aa2ba40bb13c30c0b7)
++++ b/src/main/resources/application.properties	(date 1679810070723)
+@@ -3,24 +3,16 @@
+ #spring.thymeleaf.cache=false
+ #spring.jpa.properties.hibernate.show_sql=true
+ #spring.jpa.properties.hibernate.format_sql=true
+-#spring.jpa.hibernate.ddl-auto=update
+ #jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+ 
+-#mysql
+-spring.datasource.url=jdbc:mysql://studybook-db.ckkyb2lydteh.ap-northeast-2.rds.amazonaws.com:3306/studybook
++#spring.datasource.url=jdbc:mysql://been-someone-database.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone
++#spring.datasource.username=admin
++#spring.datasource.password=nono9194
++#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
++#spring.jpa.hibernate.ddl-auto=update
++
++spring.datasource.url=jdbc:mysql://been-someone-db.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone_name
+ spring.datasource.username=admin
+-spring.datasource.password=apdlvmf1!
++spring.datasource.password=nono9194
+ spring.jpa.hibernate.ddl-auto=update
+-jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+-
+-## h2
+-#spring.h2.console.enabled=true
+-#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;
+-#spring.datasource.username=sa
+-#spring.datasource.password=
+-#spring.jpa.hibernate.ddl-auto=update
+-#
+-#
+-#spring.jpa.generate-ddl=true
+-#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+-
++jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+\ No newline at end of file

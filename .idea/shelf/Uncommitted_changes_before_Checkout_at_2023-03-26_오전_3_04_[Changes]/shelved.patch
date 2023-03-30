@@ -1,0 +1,36 @@
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>ing.level.org.apache.coyote.http11=debug\r\nspring.profiles.include=mysql\r\nspring.thymeleaf.cache=false\r\nspring.jpa.properties.hibernate.show_sql=true\r\nspring.jpa.properties.hibernate.format_sql=true\r\njwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 11191a7b7e5297ad7b8ac008a95cb6c7065dc5a0)
++++ b/src/main/resources/application.properties	(date 1679746495665)
+@@ -1,6 +1,18 @@
+-ing.level.org.apache.coyote.http11=debug
+-spring.profiles.include=mysql
+-spring.thymeleaf.cache=false
+-spring.jpa.properties.hibernate.show_sql=true
+-spring.jpa.properties.hibernate.format_sql=true
+-jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
++#ing.level.org.apache.coyote.http11=debug
++#spring.profiles.include=mysql
++#spring.thymeleaf.cache=false
++#spring.jpa.properties.hibernate.show_sql=true
++#spring.jpa.properties.hibernate.format_sql=true
++#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
++
++#spring.datasource.url=jdbc:mysql://been-someone-database.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone
++#spring.datasource.username=admin
++#spring.datasource.password=nono9194
++#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
++#spring.jpa.hibernate.ddl-auto=update
++
++spring.datasource.url=jdbc:mysql://been-someone-db.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone_name
++spring.datasource.username=admin
++spring.datasource.password=nono9194
++spring.jpa.hibernate.ddl-auto=update
++jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+\ No newline at end of file

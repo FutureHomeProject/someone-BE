@@ -1,0 +1,68 @@
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ing.level.org.apache.coyote.http11=debug\r\n#spring.profiles.include=mysql\r\n#spring.thymeleaf.cache=false\r\n#spring.jpa.properties.hibernate.show_sql=true\r\n#spring.jpa.properties.hibernate.format_sql=true\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#mysql\r\n\r\nspring.profiles.include=security\r\nspring.jpa.hibernate.ddl-auto=update\r\njwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n## h2\r\n#spring.h2.console.enabled=true\r\n#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;\r\n#spring.datasource.username=sa\r\n#spring.datasource.password=\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#\r\n#\r\n#spring.jpa.generate-ddl=true\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#logging\r\n\r\n#s3\r\ncloud.aws.credentials.access-key=AKIAZQJZYDTFOWPLVRFS\r\ncloud.aws.credentials.secret-key=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\r\n\r\ncloud.aws.s3.bucket = someone-be-bucket\r\n\r\ncloud.aws.region.static=ap-northeast-2\r\ncloud.aws.stack.auto=false\r\n\r\ncom.example.upload.path=C:\\\\upload\\\\\r\n\r\nspring.servlet.multipart.enabled=true\r\nspring.servlet.multipart.location=C:\\\\upload\r\nspring.servlet.multipart.max-request-size=30MB\r\nspring.servlet.multipart.max-file-size=10MB
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision b3da9d986280298dc4c7ae50741e3728de435b4f)
++++ b/src/main/resources/application.properties	(date 1679974634593)
+@@ -3,26 +3,19 @@
+ #spring.thymeleaf.cache=false
+ #spring.jpa.properties.hibernate.show_sql=true
+ #spring.jpa.properties.hibernate.format_sql=true
+-#spring.jpa.hibernate.ddl-auto=update
+ #jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+ 
+-#mysql
++#spring.datasource.url=jdbc:mysql://been-someone-database.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone
++#spring.datasource.username=admin
++#spring.datasource.password=nono9194
++#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
++#spring.jpa.hibernate.ddl-auto=update
+ 
+-spring.profiles.include=security
++spring.datasource.url=jdbc:mysql://been-someone-db.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone_name
++spring.datasource.username=admin
++spring.datasource.password=nono9194
+ spring.jpa.hibernate.ddl-auto=update
+ jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+-
+-## h2
+-#spring.h2.console.enabled=true
+-#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;
+-#spring.datasource.username=sa
+-#spring.datasource.password=
+-#spring.jpa.hibernate.ddl-auto=update
+-#
+-#
+-#spring.jpa.generate-ddl=true
+-#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+-
+ #logging
+ 
+ #s3
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n\tid 'java'\r\n\tid 'org.springframework.boot' version '2.7.5'\r\n\tid 'io.spring.dependency-management' version '1.0.15.RELEASE'\r\n}\r\n\r\ngroup = 'com.example'\r\nversion = '0.0.1-SNAPSHOT'\r\nsourceCompatibility = '17'\r\n\r\nconfigurations {\r\n\tcompileOnly {\r\n\t\textendsFrom annotationProcessor\r\n\t}\r\n}\r\n\r\nrepositories {\r\n\tmavenCentral()\r\n}\r\n\r\ndependencies {\r\n\r\n\timplementation 'org.springframework.boot:spring-boot-starter-data-jpa'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-security'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-thymeleaf'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-web'\r\n\timplementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'\r\n\tcompileOnly 'org.projectlombok:lombok'\r\n\tannotationProcessor 'org.projectlombok:lombok'\r\n\ttestImplementation 'org.springframework.boot:spring-boot-starter-test'\r\n\ttestImplementation 'org.springframework.security:spring-security-test'\r\n\r\n\timplementation 'org.springframework.boot:spring-boot-starter-data-jpa'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-security'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-thymeleaf'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-web'\r\n\timplementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'\r\n\tdevelopmentOnly 'org.springframework.boot:spring-boot-devtools'\r\n\tcompileOnly 'org.projectlombok:lombok'\r\n\tannotationProcessor 'org.projectlombok:lombok'\r\n\ttestImplementation 'org.springframework.boot:spring-boot-starter-test'\r\n\ttestImplementation 'org.springframework.security:spring-security-test'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-validation'\r\n\timplementation 'com.h2database:h2'\r\n\r\n\truntimeOnly 'com.mysql:mysql-connector-j'\r\n\truntimeOnly 'com.h2database:h2'\r\n\r\n\timplementation group: 'org.json', name: 'json', version: '20220924'\r\n\r\n\tcompileOnly group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'\r\n\truntimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'\r\n\truntimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'\r\n\r\n\timplementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.6.RELEASE'\r\n\r\n\r\n}\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t//-Xlint:unchecked 옵션\r\n//tasks.withType(JavaCompile) {\t\t\t\t\t\t//Gradle 빌드시 나오는 오류 자세하게 나오게함\r\n//\toptions.compilerArgs << \"-Xlint:unchecked\"\r\n//}\r\n\r\ntasks.named('test') {\r\n\tuseJUnitPlatform()\r\n}\r\n\r\njar {\r\n\tenabled = false\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision b3da9d986280298dc4c7ae50741e3728de435b4f)
++++ b/build.gradle	(date 1679974607351)
+@@ -57,9 +57,9 @@
+ 
+ }
+ 													//-Xlint:unchecked 옵션
+-//tasks.withType(JavaCompile) {						//Gradle 빌드시 나오는 오류 자세하게 나오게함
+-//	options.compilerArgs << "-Xlint:unchecked"
+-//}
++tasks.withType(JavaCompile) {						//Gradle 빌드시 나오는 오류 자세하게 나오게함
++	options.compilerArgs << "-Xlint:unchecked"
++}
+ 
+ tasks.named('test') {
+ 	useJUnitPlatform()

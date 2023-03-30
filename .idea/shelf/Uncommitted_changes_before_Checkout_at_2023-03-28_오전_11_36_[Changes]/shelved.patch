@@ -1,0 +1,218 @@
+Index: src/test/java/com/example/someonebe/util/S3UploaderTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.someonebe.util;\r\n\r\nimport java.io.IOException;\r\nimport org.junit.jupiter.api.Assertions;\r\nimport org.junit.jupiter.api.DisplayName;\r\nimport org.junit.jupiter.api.Test;\r\nimport org.springframework.beans.factory.annotation.Autowired;\r\nimport org.springframework.boot.test.context.SpringBootTest;\r\n\r\n@SpringBootTest\r\nclass S3UploaderTest {\r\n\r\n    @Autowired\r\n    private S3Uploader s3Uploader;\r\n    \r\n    @Test\r\n    @DisplayName(\"기본적인 Uploader 실행 테스트\")\r\n    public void loadTest(){\r\n        /* given */\r\n        \r\n        /* when */\r\n    \r\n        /* then */\r\n        System.out.println(s3Uploader.amazonS3Client);\r\n    }\r\n\r\n    @Test\r\n    public void upload(){\r\n\r\n        /* given */\r\n        String filePath = \"C:\\\\test\\\\2372ad79e18d7b.png\";\r\n\r\n        /* when */\r\n        String uploadName= s3Uploader.uploadFileToS3(filePath);\r\n        /* then */\r\n\r\n        System.out.println(uploadName);\r\n    }\r\n\r\n    @Test @DisplayName(\"S3로부터 해당 file 이름의 객체 Url를 얻어 옴\")\r\n    public void getImage() throws IOException {\r\n\r\n        /* given */\r\n        String fileName = \"2372ad79e18d7b.png\";\r\n\r\n        /* when */\r\n\r\n        String url = s3Uploader.getFileUrl(fileName);\r\n\r\n        /* then */\r\n\r\n        Assertions.assertNotNull(url);\r\n        System.out.println(url);\r\n    }\r\n    \r\n    @Test @DisplayName(\"S3에 저장된 file을 filename으로 삭제 함\")\r\n    public void deleteS3File(){\r\n        /* given */\r\n        String fileName = \"2372ad79e18d7b.png\";\r\n\r\n        /* when */\r\n\r\n        s3Uploader.removeS3File(fileName);\r\n\r\n        /* then */\r\n    }\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/example/someonebe/util/S3UploaderTest.java b/src/test/java/com/example/someonebe/util/S3UploaderTest.java
+--- a/src/test/java/com/example/someonebe/util/S3UploaderTest.java	(revision 07dab4f2013d2bb1dcde5d1bf6f82cfa1cfed8ab)
++++ b/src/test/java/com/example/someonebe/util/S3UploaderTest.java	(date 1679971458363)
+@@ -1,68 +1,68 @@
+-package com.example.someonebe.util;
+-
+-import java.io.IOException;
+-import org.junit.jupiter.api.Assertions;
+-import org.junit.jupiter.api.DisplayName;
+-import org.junit.jupiter.api.Test;
+-import org.springframework.beans.factory.annotation.Autowired;
+-import org.springframework.boot.test.context.SpringBootTest;
+-
+-@SpringBootTest
+-class S3UploaderTest {
+-
+-    @Autowired
+-    private S3Uploader s3Uploader;
+-    
+-    @Test
+-    @DisplayName("기본적인 Uploader 실행 테스트")
+-    public void loadTest(){
+-        /* given */
+-        
+-        /* when */
+-    
+-        /* then */
+-        System.out.println(s3Uploader.amazonS3Client);
+-    }
+-
+-    @Test
+-    public void upload(){
+-
+-        /* given */
+-        String filePath = "C:\\test\\2372ad79e18d7b.png";
+-
+-        /* when */
+-        String uploadName= s3Uploader.uploadFileToS3(filePath);
+-        /* then */
+-
+-        System.out.println(uploadName);
+-    }
+-
+-    @Test @DisplayName("S3로부터 해당 file 이름의 객체 Url를 얻어 옴")
+-    public void getImage() throws IOException {
+-
+-        /* given */
+-        String fileName = "2372ad79e18d7b.png";
+-
+-        /* when */
+-
+-        String url = s3Uploader.getFileUrl(fileName);
+-
+-        /* then */
+-
+-        Assertions.assertNotNull(url);
+-        System.out.println(url);
+-    }
+-    
+-    @Test @DisplayName("S3에 저장된 file을 filename으로 삭제 함")
+-    public void deleteS3File(){
+-        /* given */
+-        String fileName = "2372ad79e18d7b.png";
+-
+-        /* when */
+-
+-        s3Uploader.removeS3File(fileName);
+-
+-        /* then */
+-    }
+-
+-}
+\ No newline at end of file
++//package com.example.someonebe.util;
++//
++//import java.io.IOException;
++//import org.junit.jupiter.api.Assertions;
++//import org.junit.jupiter.api.DisplayName;
++//import org.junit.jupiter.api.Test;
++//import org.springframework.beans.factory.annotation.Autowired;
++//import org.springframework.boot.test.context.SpringBootTest;
++//
++//@SpringBootTest
++//class S3UploaderTest {
++//
++//    @Autowired
++//    private S3Uploader s3Uploader;
++//
++//    @Test
++//    @DisplayName("기본적인 Uploader 실행 테스트")
++//    public void loadTest(){
++//        /* given */
++//
++//        /* when */
++//
++//        /* then */
++//        System.out.println(s3Uploader.amazonS3Client);
++//    }
++//
++//    @Test
++//    public void upload(){
++//
++//        /* given */
++//        String filePath = "C:\\test\\2372ad79e18d7b.png";
++//
++//        /* when */
++//        String uploadName= s3Uploader.uploadFileToS3(filePath);
++//        /* then */
++//
++//        System.out.println(uploadName);
++//    }
++//
++//    @Test @DisplayName("S3로부터 해당 file 이름의 객체 Url를 얻어 옴")
++//    public void getImage() throws IOException {
++//
++//        /* given */
++//        String fileName = "2372ad79e18d7b.png";
++//
++//        /* when */
++//
++//        String url = s3Uploader.getFileUrl(fileName);
++//
++//        /* then */
++//
++//        Assertions.assertNotNull(url);
++//        System.out.println(url);
++//    }
++//
++//    @Test @DisplayName("S3에 저장된 file을 filename으로 삭제 함")
++//    public void deleteS3File(){
++//        /* given */
++//        String fileName = "2372ad79e18d7b.png";
++//
++//        /* when */
++//
++//        s3Uploader.removeS3File(fileName);
++//
++//        /* then */
++//    }
++//
++//}
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n\tid 'java'\r\n\tid 'org.springframework.boot' version '2.7.5'\r\n\tid 'io.spring.dependency-management' version '1.0.15.RELEASE'\r\n}\r\n\r\ngroup = 'com.example'\r\nversion = '0.0.1-SNAPSHOT'\r\nsourceCompatibility = '17'\r\n\r\nconfigurations {\r\n\tcompileOnly {\r\n\t\textendsFrom annotationProcessor\r\n\t}\r\n}\r\n\r\nrepositories {\r\n\tmavenCentral()\r\n}\r\n\r\ndependencies {\r\n\r\n\timplementation 'org.springframework.boot:spring-boot-starter-data-jpa'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-security'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-thymeleaf'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-web'\r\n\timplementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'\r\n\tcompileOnly 'org.projectlombok:lombok'\r\n\tannotationProcessor 'org.projectlombok:lombok'\r\n\ttestImplementation 'org.springframework.boot:spring-boot-starter-test'\r\n\ttestImplementation 'org.springframework.security:spring-security-test'\r\n\r\n\timplementation 'org.springframework.boot:spring-boot-starter-data-jpa'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-security'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-thymeleaf'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-web'\r\n\timplementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'\r\n\tdevelopmentOnly 'org.springframework.boot:spring-boot-devtools'\r\n\tcompileOnly 'org.projectlombok:lombok'\r\n\tannotationProcessor 'org.projectlombok:lombok'\r\n\ttestImplementation 'org.springframework.boot:spring-boot-starter-test'\r\n\ttestImplementation 'org.springframework.security:spring-security-test'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-validation'\r\n\timplementation 'com.h2database:h2'\r\n\r\n\truntimeOnly 'com.mysql:mysql-connector-j'\r\n\truntimeOnly 'com.h2database:h2'\r\n\r\n\timplementation group: 'org.json', name: 'json', version: '20220924'\r\n\r\n\tcompileOnly group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'\r\n\truntimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'\r\n\truntimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'\r\n\r\n\timplementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.6.RELEASE'\r\n\r\n\r\n}\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t//-Xlint:unchecked 옵션\r\n//tasks.withType(JavaCompile) {\t\t\t\t\t\t//Gradle 빌드시 나오는 오류 자세하게 나오게함\r\n//\toptions.compilerArgs << \"-Xlint:unchecked\"\r\n//}\r\n\r\ntasks.named('test') {\r\n\tuseJUnitPlatform()\r\n}\r\n\r\njar {\r\n\tenabled = false\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 07dab4f2013d2bb1dcde5d1bf6f82cfa1cfed8ab)
++++ b/build.gradle	(date 1679972019644)
+@@ -57,9 +57,9 @@
+ 
+ }
+ 													//-Xlint:unchecked 옵션
+-//tasks.withType(JavaCompile) {						//Gradle 빌드시 나오는 오류 자세하게 나오게함
+-//	options.compilerArgs << "-Xlint:unchecked"
+-//}
++tasks.withType(JavaCompile) {						//Gradle 빌드시 나오는 오류 자세하게 나오게함
++	options.compilerArgs << "-Xlint:unchecked"
++}
+ 
+ tasks.named('test') {
+ 	useJUnitPlatform()
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#ing.level.org.apache.coyote.http11=debug\r\n#spring.profiles.include=mysql\r\n#spring.thymeleaf.cache=false\r\n#spring.jpa.properties.hibernate.show_sql=true\r\n#spring.jpa.properties.hibernate.format_sql=true\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#mysql\r\nspring.datasource.url=jdbc:mysql://studybook-db.ckkyb2lydteh.ap-northeast-2.rds.amazonaws.com:3306/studybook\r\nspring.datasource.username=admin\r\nspring.datasource.password=apdlvmf1!\r\nspring.jpa.hibernate.ddl-auto=update\r\njwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n## h2\r\n#spring.h2.console.enabled=true\r\n#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;\r\n#spring.datasource.username=sa\r\n#spring.datasource.password=\r\n#spring.jpa.hibernate.ddl-auto=update\r\n#\r\n#\r\n#spring.jpa.generate-ddl=true\r\n#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=\r\n\r\n#logging\r\n\r\n#s3\r\ncloud.aws.credentials.access-key=AKIAZQJZYDTFOWPLVRFS\r\ncloud.aws.credentials.secret-key=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\r\n\r\ncloud.aws.s3.bucket = someone-be-bucket\r\n\r\ncloud.aws.region.static=ap-northeast-2\r\ncloud.aws.stack.auto=false\r\n\r\ncom.example.upload.path=C:\\\\upload\\\\\r\n\r\nspring.servlet.multipart.enabled=true\r\nspring.servlet.multipart.location=C:\\\\upload\r\nspring.servlet.multipart.max-request-size=30MB\r\nspring.servlet.multipart.max-file-size=10MB
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 07dab4f2013d2bb1dcde5d1bf6f82cfa1cfed8ab)
++++ b/src/main/resources/application.properties	(date 1679839546086)
+@@ -3,27 +3,19 @@
+ #spring.thymeleaf.cache=false
+ #spring.jpa.properties.hibernate.show_sql=true
+ #spring.jpa.properties.hibernate.format_sql=true
+-#spring.jpa.hibernate.ddl-auto=update
+ #jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+ 
+-#mysql
+-spring.datasource.url=jdbc:mysql://studybook-db.ckkyb2lydteh.ap-northeast-2.rds.amazonaws.com:3306/studybook
++#spring.datasource.url=jdbc:mysql://been-someone-database.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone
++#spring.datasource.username=admin
++#spring.datasource.password=nono9194
++#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
++#spring.jpa.hibernate.ddl-auto=update
++
++spring.datasource.url=jdbc:mysql://been-someone-db.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone_name
+ spring.datasource.username=admin
+-spring.datasource.password=apdlvmf1!
++spring.datasource.password=nono9194
+ spring.jpa.hibernate.ddl-auto=update
+ jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+-
+-## h2
+-#spring.h2.console.enabled=true
+-#spring.datasource.url=jdbc:h2:mem:db;MODE=MYSQL;
+-#spring.datasource.username=sa
+-#spring.datasource.password=
+-#spring.jpa.hibernate.ddl-auto=update
+-#
+-#
+-#spring.jpa.generate-ddl=true
+-#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
+-
+ #logging
+ 
+ #s3

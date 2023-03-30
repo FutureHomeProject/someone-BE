@@ -1,0 +1,116 @@
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/src/main/resources/application.properties b/src/main/resources/application.properties
+--- a/src/main/resources/application.properties	(revision 499678ed1b075a603b17a4878ce9dcbd4fc89eca)
++++ b/src/main/resources/application.properties	(date 1679981033626)
+@@ -1,1 +1,35 @@
++#ing.level.org.apache.coyote.http11=debug
++#spring.profiles.include=mysql
++#spring.thymeleaf.cache=false
++#spring.jpa.properties.hibernate.show_sql=true
++#spring.jpa.properties.hibernate.format_sql=true
++#jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
++
++#spring.datasource.url=jdbc:mysql://been-someone-database.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone
++#spring.datasource.username=admin
++#spring.datasource.password=nono9194
++#spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
++#spring.jpa.hibernate.ddl-auto=update
++
++spring.datasource.url=jdbc:mysql://been-someone-db.ckvsfnzhoyct.ap-northeast-2.rds.amazonaws.com:3306/been_someone_name
++spring.datasource.username=admin
++spring.datasource.password=nono9194
++spring.jpa.hibernate.ddl-auto=update
++jwt.secret.key=7ZWt7ZW0OTntmZTsnbTtjIXtlZzqta3snYTrhIjrqLjshLjqs4TroZzrgpjslYTqsIDsnpDtm4zrpa3tlZzqsJzrsJzsnpDrpbzrp4zrk6TslrTqsIDsnpA=
++#logging
++
++#s3
++cloud.aws.credentials.access-key=AKIAZQJZYDTFOWPLVRFS
++cloud.aws.credentials.secret-key=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
++
++cloud.aws.s3.bucket = someone-be-bucket
+ 
++cloud.aws.region.static=ap-northeast-2
++cloud.aws.stack.auto=false
++
++com.example.upload.path=C:\\upload\\
++
++spring.servlet.multipart.enabled=true
++spring.servlet.multipart.location=C:\\upload
++spring.servlet.multipart.max-request-size=30MB
++spring.servlet.multipart.max-file-size=10MB
+\ No newline at end of file
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n\tid 'java'\r\n\tid 'org.springframework.boot' version '2.7.10'\r\n\tid 'io.spring.dependency-management' version '1.0.15.RELEASE'\r\n}\r\n\r\ngroup = 'com.example'\r\nversion = '0.0.1-SNAPSHOT'\r\nsourceCompatibility = '17'\r\n\r\nconfigurations {\r\n\tcompileOnly {\r\n\t\textendsFrom annotationProcessor\r\n\t}\r\n}\r\n\r\nrepositories {\r\n\tmavenCentral()\r\n}\r\n\r\ndependencies {\r\n\timplementation 'org.springframework.boot:spring-boot-starter-data-jpa'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-security'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-thymeleaf'\r\n\timplementation 'org.springframework.boot:spring-boot-starter-web'\r\n\timplementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'\r\n\tcompileOnly 'org.projectlombok:lombok'\r\n\tannotationProcessor 'org.projectlombok:lombok'\r\n\ttestImplementation 'org.springframework.boot:spring-boot-starter-test'\r\n\ttestImplementation 'org.springframework.security:spring-security-test'\r\n}\r\n\r\ntasks.named('test') {\r\n\tuseJUnitPlatform()\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle b/build.gradle
+--- a/build.gradle	(revision 499678ed1b075a603b17a4878ce9dcbd4fc89eca)
++++ b/build.gradle	(date 1679981058643)
+@@ -1,6 +1,6 @@
+ plugins {
+ 	id 'java'
+-	id 'org.springframework.boot' version '2.7.10'
++	id 'org.springframework.boot' version '2.7.5'
+ 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+ }
+ 
+@@ -19,6 +19,7 @@
+ }
+ 
+ dependencies {
++
+ 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+ 	implementation 'org.springframework.boot:spring-boot-starter-security'
+ 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+@@ -28,8 +29,42 @@
+ 	annotationProcessor 'org.projectlombok:lombok'
+ 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+ 	testImplementation 'org.springframework.security:spring-security-test'
++
++	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
++	implementation 'org.springframework.boot:spring-boot-starter-security'
++	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
++	implementation 'org.springframework.boot:spring-boot-starter-web'
++	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
++	developmentOnly 'org.springframework.boot:spring-boot-devtools'
++	compileOnly 'org.projectlombok:lombok'
++	annotationProcessor 'org.projectlombok:lombok'
++	testImplementation 'org.springframework.boot:spring-boot-starter-test'
++	testImplementation 'org.springframework.security:spring-security-test'
++	implementation 'org.springframework.boot:spring-boot-starter-validation'
++	implementation 'com.h2database:h2'
++
++	runtimeOnly 'com.mysql:mysql-connector-j'
++	runtimeOnly 'com.h2database:h2'
++
++	implementation group: 'org.json', name: 'json', version: '20220924'
++
++	compileOnly group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.11.2'
++	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.11.2'
++	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.11.2'
++
++	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-aws', version: '2.2.6.RELEASE'
++
++
++}
++													//-Xlint:unchecked 옵션
++tasks.withType(JavaCompile) {						//Gradle 빌드시 나오는 오류 자세하게 나오게함
++	options.compilerArgs << "-Xlint:unchecked"
+ }
+ 
+ tasks.named('test') {
+ 	useJUnitPlatform()
+ }
++
++jar {
++	enabled = false
++}

@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14114262-48b1-4246-b809-f42acbcb2ad6" name="Changes" comment="commit test" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="someone-BE" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="someone-BE" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="someone-BE" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1680179764" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="dev" />
+                    <option name="lastUsedInstant" value="1680179500" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="35-리프레시-토큰" />
+                    <option name="lastUsedInstant" value="1680102092" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="51-이미지작업" />
+                    <option name="lastUsedInstant" value="1680096217" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="52-테스트-코드" />
+                    <option name="lastUsedInstant" value="1680014324" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="recentNewPullRequestHead">
+      <RepoCoordinatesHolder>
+        <option name="owner" value="FutureHomeProject" />
+        <option name="repository" value="someone-BE" />
+      </RepoCoordinatesHolder>
+    </option>
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f5cd7b3c-cb82-4b66-aad7-ff52472a5500" />
+        <option name="url" value="https://github.com/FutureHomeProject/someone-BE.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2NSqK90wsXfqCvtKzohU71pymTY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/user/Desktop/someone-BE",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "spring.configuration.checksum": "ac07b5c9148fbcd6e8c62b17ace6713b",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "h2",
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\someone-BE\.gradle\7.6.1" />
+      <recent name="C:\Users\user\Desktop\someone-BE\.gradle" />
+      <recent name="C:\Users\user\Desktop\someone-BE" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.SomeoneBeApplication">
+    <configuration name="someone-BE [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="SomeoneBeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="someone-BE.main" />
+      <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.someonebe.SomeoneBeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.someone-BE [build]" />
+        <item itemvalue="Gradle.someone-BE [build]" />
+        <item itemvalue="Gradle.someone-BE [build]" />
+        <item itemvalue="Gradle.someone-BE [build]" />
+        <item itemvalue="Gradle.someone-BE [build]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14114262-48b1-4246-b809-f42acbcb2ad6" name="Changes" comment="" />
+      <created>1679667764491</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679667764491</updated>
+      <workItem from="1679667765554" duration="2373000" />
+      <workItem from="1679705819223" duration="44793000" />
+      <workItem from="1679802704867" duration="9023000" />
+      <workItem from="1679826091567" duration="3779000" />
+      <workItem from="1679878429363" duration="11593000" />
+      <workItem from="1679965301908" duration="12176000" />
+      <workItem from="1679984400993" duration="31357000" />
+      <workItem from="1680060653516" duration="25567000" />
+      <workItem from="1680149290884" duration="23134000" />
+    </task>
+    <task id="LOCAL-00001" summary="build commit">
+      <created>1679668727028</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679668727028</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Test Commit">
+      <created>1679719908629</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679719908629</updated>
+    </task>
+    <task id="LOCAL-00003" summary="회원가입 기능구현 및 JWT,시큐리티 기능구현&#10;&#10;feat : config, controller, dto, entity, exception, jwt, repository, &#10;       security, service 패키지 생성&#10;feat : 각 패키지별 클래스, 인터페이스 및 이넘 생성">
+      <created>1679750632735</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679750632735</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat : 로그인 기능 구현&#10;       UserController, UserService에 로그인 기능 메서드 추가&#10;       LoginRequestDto, LoginResponseDto 로그인 기능 Dto 추가&#10;&#10;feat : 커스텀 HttpStatus 기능구현&#10;       CustomHttpStatus 클래스 추가 (커스텀HttpStatus생성기능)&#10;       &#10;modify : ExceptionEnum APIException 항목 추가">
+      <created>1679754082231</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679754082231</updated>
+    </task>
+    <task id="LOCAL-00005" summary="delete : 커스텀 HttpStatus 기능구현&#10;         CustomHttpStatus 클래스 추가 (커스텀HttpStatus생성기능)&#10;         -&gt; 이거 안만들어도 ExceptionEnum에 추가해서 잘돌아감.">
+      <created>1679754612145</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679754612145</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix : 이전 삭제한 파일 원상복구">
+      <created>1679757070505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679757070505</updated>
+    </task>
+    <task id="LOCAL-00007" summary="fix : ApiException null 값 오류 수정 (CustomHttpStatus는 보류)&#10;      ApiExceptionController 어노테이션 수정&#10;      @RestController &gt; @RestControllerAdvice&#10;      UserService ApiException 변경">
+      <created>1679765214188</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679765214188</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix : Api Url 수정, WebSecurityConfig Cors오류 수정">
+      <created>1679767384523</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679767384523</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat : 이메일 중복 API추가&#10;       UserController, UserService 이메일 중복 메서드 추가&#10;       CheckEmailRequestDto, CheckEmailResponseDto Dto추가&#10;       WebSecurityConfig FilterChain URL">
+      <created>1679806694414</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679806694414</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat : 닉네임 중복 API추가&#10;       UserController, UserService 닉네임 중복 메서드 추가&#10;       CheckNicknameRequestDto, CheckNicknameResponseDto Dto추가&#10;       WebSecurityConfig FilterChain URL 추가&#10;       &#10;fix : SignupRequestDto 닉네임 @Size 설정">
+      <created>1679808566794</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679808566794</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix : 이메일 중복 API 메서드명 변경">
+      <created>1679808662015</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679808662015</updated>
+    </task>
+    <task id="LOCAL-00012" summary="fix : 이메일 응답 반환값 변경">
+      <created>1679809096570</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679809096570</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix : 비밀번호 정규식 변경 &#10;      + 특수문자 추가">
+      <created>1679809892864</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679809892864</updated>
+    </task>
+    <task id="LOCAL-00014" summary="feat : bulid.gradle 옵션추가&#10;&#10;-Xlint:unchecked 옵션 추가 -&gt; build시 알려주는 warning 자세하게 알려주는 코드&#10;                             필요시 주석 변경하면서 사용하면 될듯.">
+      <created>1679811833586</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1679811833586</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat : RefreshToken 기능구현 (아직 테스트 못함)&#10;       JwtRefreshFilter 클래스 추가&#10;       RefreshTokenManger 클래스 추가&#10;       JwtUtil Refresh토큰 로직 추가&#10;       UserController refresh access token 메서드 추가&#10;       UserService refresh access token 메서드 추가&#10;       WebSecurityconfig JwtRefreshFilter 의존성 추가, JwtRefreshFilter추가">
+      <created>1679974593435</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1679974593435</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat : 집들이게시판 CRUD 기능구현">
+      <created>1679982789608</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1679982789608</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat : 집들이게시판 CRUD 기능구현">
+      <created>1679984940390</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1679984940390</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat : 집들이게시판 CRUD 기능구현">
+      <created>1679985057267</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1679985057267</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat : 집들이게시판 CRUD 기능구현테스트중">
+      <created>1679987007373</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1679987007373</updated>
+    </task>
+    <task id="LOCAL-00020" summary="feat : 집들이게시판 CRUD 기능구현 완료">
+      <created>1679989090881</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1679989090881</updated>
+    </task>
+    <task id="LOCAL-00021" summary="feat : ExceptionEnum 수정&#10;       merge 하면서 오류남">
+      <created>1679989363804</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1679989363804</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix : s3업로드 관련 빌드시 생기는 오류로 주석처리">
+      <created>1679989490136</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1679989490136</updated>
+    </task>
+    <task id="LOCAL-00023" summary="fix : 이미지작업 중간 commit&#10;      BoardController&#10;      BoardFileRepository&#10;      BoardService&#10;      FileController&#10;      FileStorageService&#10;      S3Config">
+      <created>1680014152834</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680014152834</updated>
+    </task>
+    <task id="LOCAL-00024" summary="fix : 이미지작업 완료 (리뷰 작성)&#10;      S3 업로드,수정, 삭제 기능구현">
+      <created>1680095237377</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680095237377</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix : 인준님 흔적 삭제">
+      <created>1680095974072</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1680095974072</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fix : 수정사항">
+      <created>1680102078960</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1680102078960</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix : BoardController writeBoard메서드 Requestpart 수정">
+      <created>1680104482991</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1680104482991</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix : 조금씩 수정&#10;      requestDto 예외처리 삭제 (multipartfile @NotNull,@NotBlank 사용불가)&#10;      &#10;      BoardService image null값일 경우 예외처리 로직 추가&#10;      &#10;      ExceptionEnum 예외처리 코드 추가&#10;      &#10;      ReviewService image null값일 경우 예외처리 로직 추가">
+      <created>1680106450227</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1680106450227</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix : 보드코멘트 댓글 리퀘스트 값 수정,리스폰스 생성자 수정&#10;      &#10;      cors 값 수정">
+      <created>1680154168378</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1680154168378</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix : 보드 이미지 업로드 작업중">
+      <created>1680164241905</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1680164241905</updated>
+    </task>
+    <task id="LOCAL-00031" summary="fix : 상품 이미지 업로드 작업중">
+      <created>1680166690840</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1680166690840</updated>
+    </task>
+    <task id="LOCAL-00032" summary="fix : 상품 이미지 업로드 작업은 생성">
+      <created>1680167239774</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1680167239774</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix : 상품 댓글 이미지 업로드 작업은 생성">
+      <created>1680167554155</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1680167554155</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fix : config에 도메인추가함">
+      <created>1680169006081</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1680169006081</updated>
+    </task>
+    <task id="LOCAL-00035" summary="commit">
+      <created>1680169655441</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1680169655441</updated>
+    </task>
+    <task id="LOCAL-00036" summary="commit">
+      <created>1680179543049</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1680179543050</updated>
+    </task>
+    <task id="LOCAL-00037" summary="commit test">
+      <created>1680179742688</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1680179742688</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:com.amazonaws:aws-java-sdk-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
+    <option featureType="dependencySupport" implementationName="java:com.amazonaws:aws-java-sdk-s3" />
+    <option featureType="dependencySupport" implementationName="java:org.thymeleaf:thymeleaf" />
+    <option featureType="dependencySupport" implementationName="java:com.amazonaws:aws-java-sdk-dynamodb" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat : 닉네임 중복 API추가&#10;       UserController, UserService 닉네임 중복 메서드 추가&#10;       CheckNicknameRequestDto, CheckNicknameResponseDto Dto추가&#10;       WebSecurityConfig FilterChain URL 추가&#10;       &#10;fix : SignupRequestDto 닉네임 @Size 설정" />
+    <MESSAGE value="fix : 이메일 중복 API 메서드명 변경" />
+    <MESSAGE value="fix : 이메일 응답 반환값 변경" />
+    <MESSAGE value="fix : 비밀번호 정규식 변경 &#10;      + 특수문자 추가" />
+    <MESSAGE value="feat : bulid.gradle 옵션추가&#10;&#10;-Xlint:unchecked 옵션 추가 -&gt; build시 알려주는 warning 자세하게 알려주는 코드&#10;                             필요시 주석 변경하면서 사용하면 될듯." />
+    <MESSAGE value="feat : RefreshToken 기능구현 (아직 테스트 못함)&#10;       JwtRefreshFilter 클래스 추가&#10;       RefreshTokenManger 클래스 추가&#10;       JwtUtil Refresh토큰 로직 추가&#10;       UserController refresh access token 메서드 추가&#10;       UserService refresh access token 메서드 추가&#10;       WebSecurityconfig JwtRefreshFilter 의존성 추가, JwtRefreshFilter추가" />
+    <MESSAGE value="feat : 집들이게시판 CRUD 기능구현" />
+    <MESSAGE value="feat : 집들이게시판 CRUD 기능구현테스트중" />
+    <MESSAGE value="feat : 집들이게시판 CRUD 기능구현 완료" />
+    <MESSAGE value="feat : ExceptionEnum 수정&#10;       merge 하면서 오류남" />
+    <MESSAGE value="fix : s3업로드 관련 빌드시 생기는 오류로 주석처리" />
+    <MESSAGE value="fix : 이미지작업 중간 commit&#10;      BoardController&#10;      BoardFileRepository&#10;      BoardService&#10;      FileController&#10;      FileStorageService&#10;      S3Config" />
+    <MESSAGE value="fix : 이미지작업 완료 (리뷰 작성)&#10;      S3 업로드,수정, 삭제 기능구현" />
+    <MESSAGE value="fix : 인준님 흔적 삭제" />
+    <MESSAGE value="fix : 수정사항" />
+    <MESSAGE value="fix : BoardController writeBoard메서드 Requestpart 수정" />
+    <MESSAGE value="fix : 조금씩 수정&#10;      requestDto 예외처리 삭제 (multipartfile @NotNull,@NotBlank 사용불가)&#10;      &#10;      BoardService image null값일 경우 예외처리 로직 추가&#10;      &#10;      ExceptionEnum 예외처리 코드 추가&#10;      &#10;      ReviewService image null값일 경우 예외처리 로직 추가" />
+    <MESSAGE value="fix : 보드코멘트 댓글 리퀘스트 값 수정,리스폰스 생성자 수정&#10;      &#10;      cors 값 수정" />
+    <MESSAGE value="fix : 보드 이미지 업로드 작업중" />
+    <MESSAGE value="fix : 상품 이미지 업로드 작업중" />
+    <MESSAGE value="fix : 상품 이미지 업로드 작업은 생성" />
+    <MESSAGE value="fix : 상품 댓글 이미지 업로드 작업은 생성" />
+    <MESSAGE value="fix : config에 도메인추가함" />
+    <MESSAGE value="commit" />
+    <MESSAGE value="commit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit test" />
+  </component>
+</project>
