@@ -87,7 +87,6 @@ public class WebSecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.addAllowedOrigin("http://localhost:3000");
-        configuration.addAllowedOrigin("http://hanghae99-7week-7.s3-website.ap-northeast-2.amazonaws.com");
         configuration.addExposedHeader(JwtUtil.AUTHORIZATION_HEADER);
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");

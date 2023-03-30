@@ -1,5 +1,6 @@
 package com.example.someonebe.controller;
 
+import com.example.someonebe.dto.request.ProductRequestDto;
 import com.example.someonebe.dto.request.ReviewRequestDto;
 import com.example.someonebe.dto.response.MessageResponseDto;
 import com.example.someonebe.dto.response.ProductResponseDto;
@@ -9,6 +10,7 @@ import com.example.someonebe.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -19,9 +21,10 @@ public class ProductController {
     private final ProductService productService;
 
 //    // 상품 등록 -- 확인용
-    @PostMapping("/products")
-    public MessageResponseDto createProduct(@AuthenticationPrincipal UserDetailsImpl userDetails) {
-        return productService.createProduct(userDetails.getUser());
+    @PostMapping(value = "/products", consumes = {"multipart/form-data"})
+    public MessageResponseDto createProduct(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestPart("image") MultipartFile image, @RequestPart("name") String name,@RequestPart("price") int price, @RequestPart("brandname") String brandname) {
+        ProductRequestDto productRequestDto = new ProductRequestDto(image, name, price, brandname);
+        return productService.createProduct(userDetails.getUser(), productRequestDto);
     }
 
 //    // 메인,상품 전체조회 & 상품 검색

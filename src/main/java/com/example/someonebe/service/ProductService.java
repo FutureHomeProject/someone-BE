@@ -1,5 +1,6 @@
 package com.example.someonebe.service;
 
+import com.example.someonebe.dto.request.ProductRequestDto;
 import com.example.someonebe.dto.response.*;
 import com.example.someonebe.entity.Product;
 import com.example.someonebe.entity.Review;
@@ -23,10 +24,20 @@ public class ProductService {
     private final ProductRepository productRepository;
     private final ScrapRepository scrapRepository;
     private final ReviewRepository reviewRepository;
+    private final FileStorageService fileStorageService;
 
     // 상품 등록 -- 확인용
     @Transactional
-    public MessageResponseDto createProduct(User user) {
+    public MessageResponseDto createProduct(User user, ProductRequestDto productRequestDto) {
+        if (productRequestDto.getImage() == null || productRequestDto.getImage().isEmpty()) {
+            // 적절한 오류 메시지와 함께 응답을 반환하거나 예외를 던집니다.
+            throw new ApiException(ExceptionEnum.NOT_FOUND_IMAGE);
+        }
+
+        // 이미지를 S3에 업로드하고 파일 이름을 가져옴
+        String fileName = fileStorageService.storeFile(productRequestDto.getImage());
+        // 파일 이름을 사용하여 S3 URL을 가져옴
+        String imageUrl = fileStorageService.getFileUrl(fileName);
 
         Product product = new Product(user);
         productRepository.save(product);
