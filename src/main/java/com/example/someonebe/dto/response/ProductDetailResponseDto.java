@@ -27,7 +27,7 @@ public class ProductDetailResponseDto {
 
     public ProductDetailResponseDto(int reviewpoint, Product product, List<ReviewResponseDto> reviewList, boolean scrapstatus) {
         this.id = product.getId();
-        this.image = product.getImage();
+        this.image = product.getImageUrl();
         this.title = product.getTitle();
         this.name = product.getName();
         this.price = product.getPrice();

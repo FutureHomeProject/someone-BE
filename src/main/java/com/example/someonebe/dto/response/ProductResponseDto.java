@@ -23,7 +23,7 @@ public class ProductResponseDto {
 
     public ProductResponseDto(Product product, boolean scrapstatus) {
         this.id = product.getId();
-        this.image = product.getImage();
+        this.image = product.getImageUrl();
         this.title = product.getTitle();
         this.name = product.getName();
         this.brandname = product.getBrandname();

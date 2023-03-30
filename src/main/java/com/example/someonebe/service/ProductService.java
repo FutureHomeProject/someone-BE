@@ -2,10 +2,7 @@ package com.example.someonebe.service;
 
 import com.example.someonebe.dto.request.ProductRequestDto;
 import com.example.someonebe.dto.response.*;
-import com.example.someonebe.entity.Product;
-import com.example.someonebe.entity.Review;
-import com.example.someonebe.entity.Scrap;
-import com.example.someonebe.entity.User;
+import com.example.someonebe.entity.*;
 import com.example.someonebe.exception.ApiException;
 import com.example.someonebe.exception.ExceptionEnum;
 import com.example.someonebe.repository.ProductRepository;
@@ -39,8 +36,7 @@ public class ProductService {
         // 파일 이름을 사용하여 S3 URL을 가져옴
         String imageUrl = fileStorageService.getFileUrl(fileName);
 
-        Product product = new Product(user);
-        productRepository.save(product);
+        productRepository.saveAndFlush(new Product(user, productRequestDto, imageUrl));
 
         return new MessageResponseDto(StatusEnum.OK, null);
     }

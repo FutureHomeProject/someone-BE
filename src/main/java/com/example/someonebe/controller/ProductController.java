@@ -22,8 +22,7 @@ public class ProductController {
 
 //    // 상품 등록 -- 확인용
     @PostMapping(value = "/products", consumes = {"multipart/form-data"})
-    public MessageResponseDto createProduct(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestPart("image") MultipartFile image, @RequestPart("name") String name,@RequestPart("price") int price, @RequestPart("brandname") String brandname) {
-        ProductRequestDto productRequestDto = new ProductRequestDto(image, name, price, brandname);
+    public MessageResponseDto createProduct(@AuthenticationPrincipal UserDetailsImpl userDetails, @ModelAttribute ProductRequestDto productRequestDto) {
         return productService.createProduct(userDetails.getUser(), productRequestDto);
     }
 

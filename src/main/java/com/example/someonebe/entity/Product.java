@@ -1,5 +1,6 @@
 package com.example.someonebe.entity;
 
+import com.example.someonebe.dto.request.ProductRequestDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,7 @@ public class Product extends Timestamped{
     private Long id;
 
     @Column(nullable = false)
-    private String image;
+    private String imageUrl;
 
     @Column(nullable = false)
     private String name;
@@ -50,13 +51,13 @@ public class Product extends Timestamped{
 //    @OneToMany(orphanRemoval = true, mappedBy = "product")
 //    private List<Review> reviews = new ArrayList<>();
 
-    public Product(User user) {
-        this.image = getImage();
-        this.name = getName();
-        this.price = getPrice();
-        this.brandname = getBrandname();
-        this.title = getTitle();
-        this.content = getContent();
+    public Product(User user, ProductRequestDto productRequestDto, String imageUrl) {
+        this.imageUrl = imageUrl;
+        this.name = productRequestDto.getName();
+        this.price = productRequestDto.getPrice();
+        this.brandname = productRequestDto.getBrandname();
+        this.title = productRequestDto.getTitle();
+        this.content = productRequestDto.getContent();
         this.scrapcount = getScrapcount();
 //        this.reviewpoint = getReviewpoint();
         this.user = user;
